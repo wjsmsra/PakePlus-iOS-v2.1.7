@@ -12,13 +12,22 @@
         }
         
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 8px 8px 25px;
             overflow-x: hidden;
             position: relative;
             transition: opacity 0.5s ease-out;
+        }
+        
+        .main-wrapper {
+            display: flex;
+            flex-direction: column;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            gap: 8px;
         }
         
         .container {
@@ -28,9 +37,9 @@
             max-width: 1200px;
             margin: 0 auto;
             height: calc(100vh - 125px);
+            width: 100%;
         }
         
-        /* 修改标题样式 */
         .game-title {
             text-align: center;
             font-size: 30px;
@@ -42,27 +51,23 @@
             background: rgba(255, 255, 255, 0.15);
             border-radius: 8px;
             border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-        
-        .team-area {
-            background: rgba(255, 255, 255, 0.95);
-            border: 3px solid #1890ff;
-            border-radius: 12px;
-            padding: 10px;
-            position: relative;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            box-sizing: border-box;
         }
         
         #gameControl {
             text-align: center;
-            margin: 3px 0 8px;
+            margin: 3px auto 8px;
             padding: 6px;
             background: rgba(255, 255, 255, 0.9);
             border-radius: 8px;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            max-width: 1200px;
+            width: 100%;
+            box-sizing: border-box;
         }
         
         .control-buttons {
@@ -98,6 +103,23 @@
             box-shadow: 0 4px 10px rgba(24, 144, 255, 0.35);
         }
         
+        .username-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 6px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        #usernameBtn {
+            flex: 0 1 auto;
+            min-width: 90px;
+            max-width: 120px;
+            padding: 8px 6px;
+        }
+        
         #controlBtn {
             padding: 10px 16px;
             font-size: 18px;
@@ -109,7 +131,8 @@
             transition: all 0.2s;
             font-weight: bold;
             box-shadow: 0 3px 10px rgba(255, 77, 79, 0.3);
-            margin-top: 3px;
+            min-width: 160px;
+            flex: 2;
         }
         
         #controlBtn:hover {
@@ -117,7 +140,6 @@
             box-shadow: 0 5px 12px rgba(255, 77, 79, 0.4);
         }
         
-        /* 关键修改：重新设计游戏统计区域 */
         .game-stats-area {
             display: flex;
             flex-direction: column;
@@ -126,9 +148,9 @@
             overflow: hidden;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             margin-bottom: 5px;
+            width: 100%;
         }
 
-        /* 得分和时间统计栏 */
         .stats-board {
             background: rgba(255, 255, 255, 0.98);
             padding: 8px 12px;
@@ -149,7 +171,6 @@
             color: #ff4d4f;
         }
 
-        /* 修改：加大得分和时间字体 */
         .score {
             font-size: 32px;
             color: #ff4d4f;
@@ -192,7 +213,6 @@
             animation: statsPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         
-        /* 修改：将提示容器移到选项容器上方 */
         .english-prompt-container {
             text-align: center;
             font-size: 26px;
@@ -208,9 +228,9 @@
             border-radius: 8px;
             border: 2px solid #e8e8e8;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            width: 100%;
         }
         
-        /* 选项容器 */
         .options-container {
             display: flex;
             flex-direction: column;
@@ -219,6 +239,7 @@
             flex: 1;
             overflow-y: auto;
             min-height: 0;
+            width: 100%;
         }
         
         .option-btn {
@@ -261,7 +282,6 @@
             100% { transform: scale(0.98); }
         }
         
-        /* 修改：错误答案使用脉冲动画而不是震动动画，避免样式冲突 */
         .option-btn.wrong {
             background: linear-gradient(45deg, #ff4d4f, #ff7875) !important;
             border-color: #ff4d4f;
@@ -269,7 +289,6 @@
             animation: correctPulse 0.5s ease-in-out;
         }
         
-        /* 修改选项字母标签 */
         .option-label {
             position: absolute;
             top: 50%;
@@ -286,6 +305,19 @@
             align-items: center;
             justify-content: center;
             border: 2px solid #40a9ff;
+        }
+        
+        .team-area {
+            background: rgba(255, 255, 255, 0.95);
+            border: 3px solid #1890ff;
+            border-radius: 12px;
+            padding: 10px;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
         }
         
         .word-count {
@@ -323,7 +355,6 @@
             border: 1px solid #40a9ff;
         }
         
-        /* 新增：单词列表预览容器 */
         #wordListOverlay {
             position: fixed;
             top: 0;
@@ -477,7 +508,6 @@
             text-align: center;
         }
         
-        /* 胜利界面样式 */
         #victoryOverlay {
             position: fixed;
             top: 0;
@@ -488,7 +518,7 @@
             backdrop-filter: blur(5px);
             display: none;
             justify-content: center;
-            align-items: flex-start;
+            align-items: center;
             z-index: 2001;
             animation: fadeIn 0.5s ease-out;
             overflow-y: auto;
@@ -501,7 +531,7 @@
         }
         
         .victory-container {
-            background: linear-gradient(135deg, rgba(173, 216, 230, 0.95) 0%, rgba(135, 206, 250, 0.95) 100%);
+            background: linear-gradient(135deg, #add8e6 0%, #87cefa 100%);
             padding: 18px;
             border-radius: 18px;
             text-align: center;
@@ -510,11 +540,14 @@
             width: 95%;
             max-height: 90vh;
             animation: zoomIn 0.8s ease-out;
-            margin: 15px 0 30px;
-            border: 4px solid rgba(255, 215, 0, 0.7);
+            margin: auto;
+            border: 4px solid #FFD700;
             display: flex;
             flex-direction: column;
-            min-height: 580px;
+            min-height: auto;
+            height: auto;
+            overflow: visible;
+            align-self: center;
         }
         
         @keyframes zoomIn {
@@ -523,27 +556,37 @@
         }
         
         .victory-title {
-            font-size: 32px;
+            font-size: 28px;
             color: #ff0000;
             margin-bottom: 6px;
             font-weight: bold;
             letter-spacing: 0.5px;
+            flex-shrink: 0;
+        }
+        
+        .victory-username {
+            font-size: 36px;
+            color: #722ed1;
+            font-weight: bold;
+            margin-bottom: 2px;
+            line-height: 1.2;
+            text-align: center;
+            flex-shrink: 0;
         }
         
         .victory-message {
             font-size: 24px;
-            color: #333;
-            margin: 6px 0;
+            margin: 2px 0;
             font-weight: bold;
             line-height: 1.3;
+            flex-shrink: 0;
         }
         
-        /* 修改：优化文件名称显示样式，防止被挤压 */
         .file-name-display {
             font-size: 16px;
             color: #666;
             font-weight: bold;
-            margin-bottom: 6px;
+            margin-bottom: 2px;
             text-align: center;
             background: rgba(255, 255, 255, 0.85);
             padding: 8px 10px;
@@ -566,7 +609,7 @@
         .victory-score {
             font-size: 20px;
             color: #2f54eb;
-            margin: 6px 0;
+            margin: 2px 0;
             font-weight: bold;
             line-height: 1.3;
             background: rgba(255, 255, 255, 0.7);
@@ -603,27 +646,32 @@
             font-weight: bold;
         }
         
-        /* 新增：用时统计样式 */
         .time-used {
             font-size: 20px;
             color: #52c41a;
             font-weight: bold;
         }
         
+        /* ========== 关键修改：未过关单词容器固定尺寸 ========== */
         .failed-words-container {
             background: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
             padding: 10px;
             margin: 10px 0;
-            flex: 1;
-            min-height: 160px;
-            max-height: 420px;
-            overflow-y: auto;
             border: 3px solid #ff4d4f;
             display: flex;
             flex-direction: column;
+            
+            /* 固定尺寸：与满分时三行励志语所占高度一致，确保换行时尺寸不变 */
+            height: 230px;            /* 电脑端基准高度 */
+            max-height: 230px;
+            min-height: 230px;
+            width: 100%;
+            flex-shrink: 0;
+            overflow: hidden;
         }
         
+        /* 内部标题区高度固定 */
         .failed-words-title {
             font-size: 20px;
             color: #ff4d4f;
@@ -633,6 +681,76 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            height: 32px;
+            min-height: 32px;
+        }
+        
+        /* 内部滚动区域占满剩余高度，并允许滚动 */
+        .failed-words-content {
+            flex: 1 1 auto;
+            overflow-y: auto;
+            padding: 3px;
+            min-height: 0;
+        }
+        
+        /* ===== 满分励志语样式 ===== */
+        .full-score-message {
+            font-weight: bold;
+            line-height: 1.8;
+            color: #333;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding: 6px 0;
+            white-space: nowrap;
+        }
+        
+        /* 电脑端字体大小 */
+        @media (min-width: 1024px) {
+            .full-score-message {
+                font-size: 28px;
+            }
+        }
+        
+        /* 手机端字体大小 - 使用vw单位确保完整显示 */
+        @media (max-width: 768px) {
+            .full-score-message {
+                font-size: 4.8vw;
+                line-height: 2.0;
+                max-width: 100%;
+                overflow: visible;
+                padding-left: 8px;
+                padding-right: 8px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            
+            .full-score-message div {
+                max-width: 100%;
+                overflow: visible;
+                text-overflow: clip;
+                white-space: nowrap;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .full-score-message {
+                font-size: 4.5vw;
+                line-height: 2.0;
+                padding-left: 6px;
+                padding-right: 6px;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .full-score-message {
+                font-size: 4.2vw;
+                padding-left: 4px;
+                padding-right: 4px;
+            }
         }
         
         .failed-words-count {
@@ -643,12 +761,6 @@
             font-weight: bold;
             color: #ff4d4f;
             border: 2px solid #ff4d4f;
-        }
-        
-        .failed-words-content {
-            flex: 1;
-            overflow-y: auto;
-            padding: 3px;
         }
         
         .failed-word-item {
@@ -733,35 +845,54 @@
             flex-direction: column;
             gap: 6px;
             flex-shrink: 0;
+            width: 100%;
+            padding-bottom: 5px;
         }
         
         .victory-btn {
             padding: 8px 14px;
             font-size: 16px;
-            background: linear-gradient(45deg, #1890ff, #36cfc9);
-            color: white;
             border: none;
             border-radius: 22px;
             cursor: pointer;
             font-weight: bold;
             transition: all 0.3s;
-            box-shadow: 0 3px 10px rgba(24, 144, 255, 0.25);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
             border: 2px solid rgba(255, 255, 255, 0.5);
+            width: 100%;
         }
         
         .victory-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 14px rgba(24, 144, 255, 0.4);
-            background: linear-gradient(45deg, #36cfc9, #1890ff);
+            box-shadow: 0 5px 14px rgba(0, 0, 0, 0.3);
+        }
+        
+        .victory-btn.screenshot {
+            background: #8a4fff !important;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        .victory-btn.screenshot:hover {
+            background: #722ed1 !important;
+        }
+        
+        .victory-btn:not(.screenshot):not(.restart) {
+            background: #1890ff !important;
+            color: white;
+        }
+        
+        .victory-btn:not(.screenshot):not(.restart):hover {
+            background: #36cfc9 !important;
         }
         
         .victory-btn.restart {
-            background: linear-gradient(45deg, #ff4d4f, #ff7875);
+            background: #ff4d4f !important;
             color: white;
         }
         
         .victory-btn.restart:hover {
-            background: linear-gradient(45deg, #ff7875, #ff4d4f);
+            background: #ff7875 !important;
         }
         
         .window-controls {
@@ -800,12 +931,6 @@
         
         .window-btn:active {
             background: #d0d0d0;
-        }
-        
-        .window-btn.minimize:hover {
-            background: #36cfc9;
-            color: white;
-            border-color: #1890ff;
         }
         
         .window-btn.maximize:hover {
@@ -942,17 +1067,61 @@
             50% { opacity: 0.7; }
         }
         
-        /* 响应式调整 - 电脑端优化 */
+        /* 手机端优化 */
+        @media (max-width: 768px) {
+            .failed-words-container {
+                height: 190px;
+                max-height: 190px;
+                min-height: 190px;
+            }
+            .failed-words-title {
+                height: 28px;
+                min-height: 28px;
+                font-size: 18px;
+            }
+            
+            #victoryOverlay {
+                align-items: center;
+                padding: 10px 0;
+            }
+            
+            .victory-container {
+                max-height: 95vh;
+                margin: 0 auto;
+                width: 95%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .failed-words-container {
+                height: 170px;
+                max-height: 170px;
+                min-height: 170px;
+            }
+        }
+        
         @media (min-width: 1024px) {
-            .container {
-                height: calc(100vh - 115px);
-                gap: 6px;
+            body {
+                padding: 15px;
             }
             
             .game-title {
                 font-size: 28px;
                 padding: 5px 6px;
                 margin-bottom: 2px;
+                max-width: 1200px;
+            }
+            
+            #gameControl {
+                max-width: 1200px;
+                padding: 6px;
+                margin-bottom: 4px;
+            }
+            
+            .container {
+                height: calc(100vh - 145px);
+                gap: 6px;
+                max-width: 1200px;
             }
             
             .game-stats-area {
@@ -970,7 +1139,6 @@
                 margin-right: 5px;
             }
             
-            /* 电脑端得分和时间字体 */
             .score, .timer {
                 font-size: 30px;
             }
@@ -1006,9 +1174,17 @@
                 max-width: 155px;
             }
             
+            #usernameBtn {
+                min-width: 90px;
+                max-width: 120px;
+                padding: 7px 6px;
+            }
+            
             #controlBtn {
                 padding: 9px 16px;
                 font-size: 17px;
+                min-width: 160px;
+                flex: 2;
             }
             
             .team-area {
@@ -1018,6 +1194,18 @@
             .options-container {
                 gap: 6px;
                 padding: 10px;
+            }
+            
+            .victory-container {
+                max-width: 1000px;
+                width: 95%;
+                max-height: 85vh;
+            }
+            
+            .failed-words-container {
+                height: 230px;
+                max-height: 230px;
+                min-height: 230px;
             }
             
             .victory-score {
@@ -1034,7 +1222,6 @@
                 min-height: 36px;
             }
             
-            /* 电脑端单词列表优化 */
             .word-list-container {
                 min-height: 560px;
                 max-height: 85vh;
@@ -1080,288 +1267,25 @@
             }
         }
         
-        /* 响应式调整 - 手机端优化 */
         @media (max-width: 768px) {
             body {
                 padding: 5px 5px 18px;
             }
             
-            .container {
-                height: calc(100vh - 120px);
-                gap: 6px;
-            }
-            
-            .game-stats-area {
-                margin-bottom: 4px;
-            }
-            
-            .stats-board {
-                height: 42px;
-                font-size: 14px;
-                padding: 8px 10px;
-            }
-            
-            .stats-board i {
-                font-size: 16px;
-                margin-right: 4px;
-            }
-            
-            /* 手机端得分和时间字体 */
-            .score, .timer {
-                font-size: 28px;
-            }
-            
-            .stats-label {
-                font-size: 13px;
-            }
-            
             .game-title {
-                font-size: 24px;
-                padding: 5px;
-                margin-bottom: 4px;
-            }
-            
-            .control-buttons {
-                flex-direction: column;
-                align-items: center;
-                gap: 4px;
-            }
-            
-            .control-btn {
-                width: 100%;
                 max-width: 100%;
-                padding: 7px 9px;
-                font-size: 14px;
-                min-width: auto;
-                border-radius: 16px;
-            }
-            
-            #controlBtn {
-                padding: 9px 14px;
-                font-size: 17px;
-                margin-top: 4px;
-                border-radius: 20px;
-            }
-            
-            .option-btn {
-                font-size: 19px;
-                padding: 12px 15px 12px 48px;
-                min-height: 68px;
-                border-radius: 9px;
-            }
-            
-            .option-label {
-                width: 34px;
-                height: 34px;
-                font-size: 16px;
-                left: 10px;
-            }
-            
-            .word-count {
-                font-size: 13px;
-                padding: 2px 5px;
-                max-width: 95px;
-                top: 4px;
-                left: 4px;
-            }
-            
-            .english-prompt-container {
-                font-size: 22px;
-                padding: 10px;
-                min-height: 60px;
-            }
-            
-            .prompt-text {
                 font-size: 22px;
             }
             
-            /* 手机端胜利界面优化 */
-            #victoryOverlay {
-                padding: 12px 0;
+            #gameControl {
+                max-width: 100%;
+                padding: 4px;
             }
             
-            .victory-container {
-                min-height: 540px;
-                max-height: 85vh;
-                padding: 14px;
-                margin: 12px 0 25px;
-            }
-            
-            .victory-title {
-                font-size: 28px;
-            }
-            
-            .victory-message {
-                font-size: 21px;
-            }
-            
-            /* 关键修改：手机端文件名显示优化 */
-            .file-name-display {
-                font-size: 14px;
-                margin-bottom: 5px;
-                padding: 6px 8px;
-                min-height: 38px;
-                flex-shrink: 0;
-                position: relative;
-                z-index: 1;
-                background: rgba(255, 255, 255, 0.9);
-                border: 1px solid rgba(24, 144, 255, 0.5);
-            }
-            
-            .victory-score {
-                font-size: 17px;
-                padding: 8px;
-                max-height: 120px;
-                line-height: 1.2;
-                margin-top: 0;
-            }
-            
-            .final-score {
-                font-size: 21px;
-            }
-            
-            .accuracy-rate {
-                font-size: 19px;
-            }
-            
-            /* 手机端用时统计 */
-            .time-used {
-                font-size: 19px;
-            }
-            
-            .failed-words-title {
-                font-size: 18px;
-            }
-            
-            .failed-word-item {
-                font-size: 15px;
-                flex-direction: column;
-                gap: 3px;
-                align-items: flex-start;
-                padding: 5px;
-            }
-            
-            .failed-english {
-                font-size: 17px;
-            }
-            
-            .failed-chinese {
-                font-size: 15px;
-            }
-            
-            .failed-word-icon {
-                font-size: 15px;
-                width: 24px;
-                height: 24px;
-                margin-right: 5px;
-            }
-            
-            .failed-word-type {
-                font-size: 11px;
-                margin-left: 3px;
-            }
-            
-            .failed-words-container {
-                max-height: 330px;
-                min-height: 140px;
-                margin-top: 8px;
-            }
-            
-            .victory-buttons {
-                margin-top: 12px;
-            }
-            
-            .victory-btn {
-                padding: 7px 12px;
-                font-size: 15px;
-                margin: 0;
-            }
-            
-            .window-controls {
-                bottom: 10px;
-                right: 10px;
-                padding: 2px;
-                gap: 5px;
-            }
-            
-            .window-btn {
-                width: 28px;
-                height: 28px;
-                font-size: 13px;
-            }
-            
-            .score-line {
-                margin: 1px 0;
-            }
-            
-            /* 手机端单词列表优化 */
-            #wordListOverlay {
-                padding: 10px 0;
-            }
-            
-            .word-list-container {
-                min-height: 520px;
-                max-height: 85vh;
-                padding: 12px;
-                margin: 10px 0 20px;
-            }
-            
-            .word-list-title {
-                font-size: 24px;
-                margin-bottom: 8px;
-            }
-            
-            .word-list-header {
-                font-size: 16px;
-                padding: 6px 8px;
-                margin: 8px 0;
-            }
-            
-            .word-list-content {
-                max-height: 400px;
-                min-height: 350px;
-                padding: 10px;
-            }
-            
-            .word-list-table {
-                font-size: 14px;
-            }
-            
-            .word-list-table th {
-                font-size: 14px;
-                padding: 6px 8px;
-            }
-            
-            .word-list-table td {
-                font-size: 13px;
-                padding: 4px 6px;
-            }
-            
-            .word-english {
-                font-size: 14px;
-            }
-            
-            .word-chinese {
-                font-size: 13px;
-            }
-            
-            .word-list-close-btn {
-                font-size: 15px;
-                padding: 8px 14px;
-                margin-top: 10px;
-            }
-            
-            .word-list-stats {
-                font-size: 14px;
-                padding: 5px 8px;
-                margin-bottom: 6px;
-            }
-        }
-        
-        /* 小高度设备优化 */
-        @media (max-height: 700px) {
             .container {
-                height: calc(100vh - 110px);
+                height: calc(100vh - 115px);
+                gap: 4px;
+                max-width: 100%;
             }
             
             .game-stats-area {
@@ -1370,151 +1294,142 @@
             
             .stats-board {
                 height: 38px;
-                font-size: 14px;
-                padding: 6px 8px;
+                font-size: 12px;
+                padding: 4px 6px;
             }
             
-            /* 小屏幕得分和时间字体 */
+            .stats-board i {
+                font-size: 14px;
+                margin-right: 3px;
+            }
+            
             .score, .timer {
-                font-size: 26px;
+                font-size: 24px;
+            }
+            
+            .stats-label {
+                font-size: 11px;
+            }
+            
+            .control-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 3px;
+                margin-bottom: 3px;
+            }
+            
+            .control-btn {
+                width: 100%;
+                max-width: 100%;
+                padding: 6px 8px;
+                font-size: 13px;
+                min-width: auto;
+                border-radius: 16px;
+            }
+            
+            .username-row {
+                gap: 4px;
+                margin-bottom: 4px;
+            }
+            
+            #usernameBtn,
+            #controlBtn {
+                width: 100%;
+                max-width: 100%;
+                margin: 0;
+                padding: 7px 10px;
+                font-size: 15px;
+            }
+            
+            #controlBtn {
+                font-size: 16px;
             }
             
             .option-btn {
                 font-size: 18px;
-                padding: 10px 15px 10px 45px;
-                min-height: 62px;
+                padding: 10px 12px 10px 45px;
+                min-height: 60px;
+                border-radius: 8px;
             }
             
-            .options-container {
-                gap: 4px;
-                padding: 8px;
+            .option-label {
+                width: 30px;
+                height: 30px;
+                font-size: 14px;
+                left: 8px;
+            }
+            
+            .word-count {
+                font-size: 12px;
+                padding: 2px 4px;
+                max-width: 85px;
+                top: 3px;
+                left: 3px;
             }
             
             .english-prompt-container {
                 font-size: 20px;
-                padding: 8px;
+                padding: 8px 10px;
                 min-height: 52px;
+                margin-bottom: 5px;
             }
             
-            .game-title {
-                font-size: 22px;
-                padding: 4px;
-            }
-            
-            #victoryOverlay {
-                padding: 10px 0;
-            }
-            
-            .victory-container {
-                min-height: 500px;
-                max-height: 80vh;
-                padding: 12px;
-                margin: 10px 0 20px;
-            }
-            
-            .victory-title {
-                font-size: 26px;
-            }
-            
-            .victory-message {
+            .prompt-text {
                 font-size: 20px;
             }
             
-            /* 小屏幕文件名显示优化 */
+            .options-container {
+                gap: 4px;
+                padding: 6px;
+            }
+            
+            #victoryOverlay {
+                padding: 8px 0;
+                align-items: center;
+            }
+            
+            .victory-container {
+                min-height: auto;
+                max-height: 95vh;
+                padding: 12px;
+                margin: 0 auto;
+                overflow-y: auto;
+            }
+            
+            .victory-title {
+                font-size: 22px;
+            }
+            
+            .victory-username {
+                font-size: 28px;
+                margin-bottom: 2px;
+            }
+            
+            .victory-message {
+                font-size: 16px;
+                margin: 2px 0;
+            }
+            
             .file-name-display {
                 font-size: 13px;
-                margin-bottom: 4px;
-                padding: 4px 6px;
+                margin-bottom: 2px;
+                padding: 5px 6px;
                 min-height: 34px;
             }
             
             .victory-score {
-                font-size: 16px;
-                padding: 8px;
-                max-height: 110px;
-                line-height: 1.2;
-            }
-            
-            .failed-words-container {
-                max-height: 280px;
-                min-height: 120px;
-            }
-            
-            /* 小屏幕单词列表优化 */
-            #wordListOverlay {
-                padding: 8px 0;
-            }
-            
-            .word-list-container {
-                min-height: 480px;
-                max-height: 80vh;
-                padding: 10px;
-                margin: 8px 0 15px;
-            }
-            
-            .word-list-title {
-                font-size: 22px;
-                margin-bottom: 6px;
-            }
-            
-            .word-list-header {
                 font-size: 15px;
-                padding: 5px 6px;
-                margin: 6px 0;
+                padding: 6px;
+                max-height: 110px;
+                margin: 2px 0;
             }
             
-            .word-list-content {
-                max-height: 380px;
-                min-height: 320px;
-                padding: 8px;
+            .final-score {
+                font-size: 20px;
             }
             
-            .word-list-table th {
-                font-size: 13px;
-                padding: 5px 6px;
-            }
-            
-            .word-list-table td {
-                font-size: 12px;
-                padding: 3px 5px;
-            }
-            
-            .word-english {
-                font-size: 13px;
-            }
-            
-            .word-chinese {
-                font-size: 12px;
-            }
-            
-            .word-list-close-btn {
-                font-size: 14px;
-                padding: 7px 12px;
-                margin-top: 8px;
-            }
-        }
-        
-        /* 超小屏幕设备 */
-        @media (max-width: 360px) {
-            .victory-container {
-                min-height: 480px;
-                padding: 10px;
-            }
-            
-            .victory-title {
-                font-size: 24px;
-            }
-            
-            .victory-message {
-                font-size: 18px;
-            }
-            
-            /* 超小屏幕文件名显示优化 */
-            .file-name-display {
-                font-size: 12px;
-                margin-bottom: 4px;
-                padding: 4px 6px;
-                min-height: 32px;
+            .accuracy-rate, .time-used {
+                font-size: 17px;
             }
             
             .failed-words-title {
@@ -1523,6 +1438,10 @@
             
             .failed-word-item {
                 font-size: 14px;
+                flex-direction: column;
+                gap: 2px;
+                align-items: flex-start;
+                padding: 4px;
             }
             
             .failed-english {
@@ -1533,80 +1452,81 @@
                 font-size: 14px;
             }
             
-            /* 超小屏幕得分容器 */
-            .stats-board {
-                height: 40px;
-                font-size: 12px;
-                padding: 6px;
+            .failed-word-icon {
+                width: 22px;
+                height: 22px;
+                font-size: 14px;
             }
             
-            .score, .timer {
-                font-size: 24px;
+            .failed-words-container {
+                max-height: 190px;
+                min-height: 190px;
+                height: 190px;
             }
             
-            .game-stats-area {
-                margin-bottom: 3px;
+            .window-controls {
+                bottom: 6px;
+                right: 6px;
+                padding: 2px;
+                gap: 4px;
             }
             
-            .english-prompt-container {
-                padding: 8px;
+            .window-btn {
+                width: 24px;
+                height: 24px;
+                font-size: 11px;
             }
             
-            /* 超小屏幕单词列表优化 */
             .word-list-container {
-                min-height: 460px;
-                padding: 8px;
+                min-height: 500px;
+                max-height: 85vh;
+                padding: 10px;
             }
             
             .word-list-title {
-                font-size: 20px;
-                margin-bottom: 5px;
+                font-size: 22px;
             }
             
             .word-list-header {
-                font-size: 14px;
-                padding: 4px 5px;
-                margin: 5px 0;
+                font-size: 15px;
+                padding: 5px;
             }
             
             .word-list-content {
-                max-height: 350px;
-                min-height: 300px;
-                padding: 6px;
+                max-height: 380px;
+                min-height: 340px;
+                padding: 8px;
             }
             
             .word-list-table th {
-                font-size: 12px;
-                padding: 4px 5px;
+                font-size: 13px;
+                padding: 5px;
             }
             
             .word-list-table td {
-                font-size: 11px;
-                padding: 2px 4px;
-            }
-            
-            .word-english {
                 font-size: 12px;
+                padding: 3px 4px;
+            }
+        }
+        
+        @media (max-height: 700px) {
+            .container {
+                height: calc(100vh - 105px);
             }
             
-            .word-chinese {
-                font-size: 11px;
+            .option-btn {
+                min-height: 55px;
+                font-size: 17px;
             }
             
-            .word-list-close-btn {
-                font-size: 13px;
-                padding: 6px 10px;
-                margin-top: 6px;
-            }
-            
-            .word-list-stats {
-                font-size: 12px;
-                padding: 4px 6px;
-                margin-bottom: 5px;
+            .english-prompt-container {
+                min-height: 48px;
+                font-size: 18px;
             }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
     <!-- 关闭动画 -->
@@ -1638,23 +1558,19 @@
         </div>
     </div>
     
-    <!-- 新增：单词列表预览弹窗 -->
+    <!-- 单词列表预览弹窗 -->
     <div id="wordListOverlay">
         <div class="word-list-container">
             <h2 class="word-list-title"><i class="fas fa-list"></i> 单词列表预览</h2>
-            
             <div class="word-list-header" id="wordListHeader">
                 复习后点击关闭
             </div>
-            
             <div class="word-list-stats" id="wordListStats">
                 加载中...
             </div>
-            
             <div class="word-list-content" id="wordListContent">
                 <!-- 单词列表将在这里动态生成 -->
             </div>
-            
             <button class="word-list-close-btn" onclick="closeWordList()">
                 <i class="fas fa-times"></i> 关闭单词列表
             </button>
@@ -1663,13 +1579,10 @@
     
     <!-- Windows风格窗口控制按钮 -->
     <div class="window-controls">
-        <div class="window-btn minimize" onclick="minimizeWindow()">
-            <i class="fas fa-window-minimize"></i>
-        </div>
-        <div class="window-btn maximize" onclick="toggleFullscreen()">
+        <div class="window-btn maximize" onclick="toggleFullscreen()" title="全屏">
             <i class="fas fa-window-maximize"></i>
         </div>
-        <div class="window-btn close" onclick="showCloseConfirm()">
+        <div class="window-btn close" onclick="showCloseConfirm()" title="关闭">
             <i class="fas fa-times"></i>
         </div>
     </div>
@@ -1679,22 +1592,26 @@
         <i class="fas fa-book"></i> 百词斩 <i class="fas fa-gamepad"></i>
     </div>
     
+    <!-- 游戏控制区域 -->
     <div id="gameControl">
         <div class="control-buttons">
-            <button class="control-btn" id="uploadBtn">
+            <button class="control-btn" onclick="document.getElementById('wordFile').click()">
                 <i class="fas fa-upload"></i> 上传单词表
             </button>
             <div id="fileStatus">未加载单词表</div>
         </div>
         
-        <button id="controlBtn" onclick="toggleGame()"><i class="fas fa-play"></i> 挑战开始</button>
-        <!-- 移除原有的隐藏文件输入框 -->
+        <div class="username-row">
+            <button id="usernameBtn" class="control-btn"><i class="fas fa-user"></i> <span id="usernameDisplay">输入姓名</span></button>
+            <button id="controlBtn" onclick="toggleGame()"><i class="fas fa-play"></i> 挑战开始</button>
+        </div>
+        
+        <input type="file" id="wordFile" accept=".txt,.docx,.doc" style="display: none;" onchange="loadWords(this.files[0])">
     </div>
 
+    <!-- 游戏主体区域 -->
     <div class="container">
-        <!-- 游戏区域 -->
         <div class="game-stats-area">
-            <!-- 得分和时间统计栏 -->
             <div class="stats-board">
                 <div class="stats-section">
                     <i class="fas fa-medal"></i>
@@ -1704,21 +1621,17 @@
                 <div class="stats-section">
                     <i class="fas fa-clock"></i>
                     <span class="stats-label">时间:</span>
-                    <span class="timer" id="timer">03:00</span>
+                    <span class="timer" id="timer">10:00</span>
                 </div>
             </div>
         </div>
         
-        <!-- 游戏区域主体 -->
         <div class="team-area" id="team">
             <div class="word-count" id="word-count">单词数: 0</div>
-            
-            <!-- 修改：提示容器现在位于选项容器上方 -->
             <div class="english-prompt-container">
                 <span class="prompt-text">提示：</span>
                 <span id="prompt" class="current-prompt">请上传单词表开始游戏</span>
             </div>
-            
             <div class="options-container" id="options">
                 <!-- 四个选项按钮将在这里动态生成 -->
             </div>
@@ -1729,17 +1642,10 @@
     <div id="victoryOverlay">
         <div class="victory-container">
             <h1 class="victory-title" id="victoryTitle">游戏结束</h1>
+            <div class="victory-username" id="victoryUsername"></div>
             <div class="victory-message" id="victoryMessage"></div>
-            
-            <!-- 新增：在得分容器上方添加文件名称显示 -->
             <div class="file-name-display" id="fileNameDisplay"></div>
-            
-            <!-- 修改后的得分容器：总分、正确率和用时分三行显示，居中排版，行距收窄 -->
-            <div class="victory-score" id="victoryScore">
-                <!-- 这里将动态生成总分、正确率和用时 -->
-            </div>
-            
-            <!-- 未过关单词列表容器 -->
+            <div class="victory-score" id="victoryScore"></div>
             <div class="failed-words-container" id="failedWordsContainer" style="display: none;">
                 <div class="failed-words-title">
                     <span><i class="fas fa-exclamation-triangle"></i> 未过关单词</span>
@@ -1749,1071 +1655,96 @@
                     <!-- 未过关单词将在这里动态生成 -->
                 </div>
             </div>
-            
             <div class="victory-buttons">
+                <button class="victory-btn screenshot" onclick="captureScreenshot()"><i class="fas fa-camera"></i> 截图保存</button>
                 <button class="victory-btn" onclick="restartGame()"><i class="fas fa-redo"></i> 重新开始</button>
-                <!-- 修复：将关闭按钮改为直接调用关闭确认 -->
                 <button class="victory-btn restart" onclick="showCloseConfirm()"><i class="fas fa-times"></i> 关闭游戏</button>
             </div>
         </div>
     </div>
 
-    <!-- 引入mammoth.js用于读取docx文件 -->
     <script src="https://unpkg.com/mammoth@1.5.1/mammoth.browser.min.js"></script>
 
-<script>
-    // JavaScript代码
-    let isPlaying = false;
-    let currentWords = [];
-    let originalWords = [];
-    let victorySoundPlayed = false;
-    let cheerSoundPlayed = false;
+    <script>
+        // ==================== 用户名相关 ====================
+        let username = '';
 
-    let gameWords = [];
-    let currentPrompt = '';
-    let currentQuestion = null;
-    
-    // 得分变量
-    let score = 0;
-    
-    // 倒计时相关变量 - 修改为3分钟
-    let timerInterval = null;
-    let totalTime = 3 * 60;
-    let currentTime = totalTime;
-    
-    // 新增：记录游戏实际用时
-    let gameStartTime = 0;
-    let gameElapsedTime = 0;
-    
-    // 用于防止重复点击的锁
-    let optionClickLock = false;
-    
-    // 记录扣了5分的单词（第一次点击错误的单词） - 修改：这些单词永远算作未过关
-    let failedWords = [];
-    
-    // 音效状态管理
-    let audioContext = null;
-    let isAudioEnabled = true;
-    
-    // 新增：存储当前加载的文件名
-    let currentFileName = '';
-    
-    // 新增：iOS优化专用变量
-    let isIOS = false;
-    let isSafari = false;
-    
-    // 页面加载时初始化
-    document.addEventListener('DOMContentLoaded', function() {
-        console.log("页面加载完成，开始初始化");
-        
-        // 检测iOS和Safari
-        detectBrowserAndPlatform();
-        console.log("平台检测结果: iOS=" + isIOS + ", Safari=" + isSafari);
-        
-        // 为窗口控制按钮添加悬停音效
-        document.querySelectorAll('.window-btn').forEach(btn => {
-            btn.addEventListener('mouseenter', () => {
-                playSystemSound('click');
-            });
-        });
-        
-        // 初始化计时器显示
-        updateTimerDisplay();
-        
-        // 初始化音频上下文
-        initAudioContext();
-        
-        // 初始化文件名显示
-        const fileNameDisplay = document.getElementById('fileNameDisplay');
-        if (fileNameDisplay) {
-            fileNameDisplay.textContent = '未加载单词表';
-        }
-        
-        // 初始化选项按钮
-        const container = document.getElementById('options');
-        container.innerHTML = '';
-        for (let i = 0; i < 4; i++) {
-            const btn = document.createElement('button');
-            btn.className = 'option-btn';
-            btn.textContent = '---';
-            btn.disabled = true;
-            container.appendChild(btn);
-        }
-        
-        // 专门为上传按钮添加点击事件
-        const uploadBtn = document.getElementById('uploadBtn');
-        if (uploadBtn) {
-            uploadBtn.addEventListener('click', triggerFileUpload);
-            console.log("上传按钮事件监听器已添加");
-        }
-        
-        console.log("初始化完成");
-    });
-    
-    // 新增：检测浏览器和平台
-    function detectBrowserAndPlatform() {
-        const userAgent = navigator.userAgent.toLowerCase();
-        const platform = navigator.platform.toLowerCase();
-        
-        isIOS = /iphone|ipad|ipod/.test(userAgent) || 
-                (platform === 'macintel' && navigator.maxTouchPoints > 1);
-        isSafari = /safari/.test(userAgent) && !/chrome/.test(userAgent);
-        
-        console.log("用户代理:", navigator.userAgent);
-        console.log("平台:", navigator.platform);
-        console.log("检测结果 - iOS:", isIOS, "Safari:", isSafari);
-    }
-    
-    // 新增：触发文件上传（完全重写，专门针对iOS）
-    function triggerFileUpload() {
-        console.log("触发文件上传，当前平台：iOS=" + isIOS + ", Safari=" + isSafari);
-        
-        // 播放点击音效
-        playSystemSound('click');
-        
-        // 创建一个文件输入元素
-        const fileInput = document.createElement('input');
-        fileInput.type = 'file';
-        fileInput.accept = '.txt,.docx,.doc';
-        fileInput.style.display = 'none';
-        
-        // 重要：为iOS Safari特别处理，设置capture属性
-        if (isIOS) {
-            fileInput.setAttribute('capture', 'environment');
-        }
-        
-        // 添加change事件监听器
-        fileInput.addEventListener('change', function(e) {
-            console.log("文件选择事件触发");
-            const file = e.target.files[0];
-            if (file) {
-                console.log("选中文件:", file.name, "大小:", file.size);
-                // 立即处理文件
-                handleFileSelection(file);
+        function loadUsername() {
+            const saved = localStorage.getItem('baicizhan_username');
+            if (saved) {
+                username = saved;
             } else {
-                console.log("用户取消了文件选择");
+                username = '';
             }
-            
-            // 清理：从DOM中移除文件输入元素
-            if (fileInput.parentNode) {
-                fileInput.parentNode.removeChild(fileInput);
+            updateUsernameButton();
+        }
+
+        function saveUsername(name) {
+            if (name && name.trim() !== '') {
+                localStorage.setItem('baicizhan_username', name.trim());
+            } else {
+                localStorage.removeItem('baicizhan_username');
             }
-        });
-        
-        // 将文件输入元素添加到DOM中
-        document.body.appendChild(fileInput);
-        
-        // 关键：iOS Safari必须在用户交互事件的同一执行栈中触发click
-        // 不能使用setTimeout延迟
-        if (isIOS || isSafari) {
-            console.log("iOS/Safari设备，同步触发文件选择");
-            
-            try {
-                // 重要：在iOS上，我们需要确保文件输入框已经添加到DOM并且可见
-                // 有时需要短暂延迟确保DOM更新
-                setTimeout(() => {
-                    try {
-                        fileInput.click();
-                        console.log("iOS文件输入框click()已调用");
-                    } catch (error) {
-                        console.error("iOS文件输入框click()失败:", error);
-                        alert("iOS文件选择失败，请重试");
+        }
+
+        function updateUsernameButton() {
+            const displaySpan = document.getElementById('usernameDisplay');
+            if (displaySpan) {
+                displaySpan.textContent = (username && username.trim() !== '') ? username : '输入姓名';
+            }
+        }
+
+        function setupUsernameHandlers() {
+            const usernameBtn = document.getElementById('usernameBtn');
+            if (usernameBtn) {
+                usernameBtn.addEventListener('click', () => {
+                    const newName = prompt('请输入您的姓名', username);
+                    if (newName !== null) {
+                        const trimmed = newName.trim();
+                        username = trimmed;
+                        saveUsername(trimmed);
+                        updateUsernameButton();
                     }
-                }, 10); // 短暂延迟确保DOM更新
-            } catch (error) {
-                console.error("iOS文件上传处理失败:", error);
-                alert("iOS文件上传失败，请刷新页面重试");
+                });
             }
-        } else {
-            // 非iOS设备，正常处理
-            console.log("非iOS设备，正常触发文件选择");
-            fileInput.click();
         }
-    }
-    
-    // 新增：处理文件选择（统一入口）
-    function handleFileSelection(file) {
-        console.log("处理文件选择:", file ? file.name : "无文件");
-        
-        if (!file) {
-            alert('请选择一个文件！');
-            return;
-        }
-        
-        // 立即调用文件加载函数
-        loadWords(file);
-    }
 
-    // 初始化音频上下文 - 修复音效问题
-    function initAudioContext() {
-        try {
-            audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            console.log("音频上下文初始化成功");
-        } catch (e) {
-            console.log("音频上下文初始化失败:", e);
-            isAudioEnabled = false;
-        }
-    }
+        // ==================== 游戏核心逻辑 ====================
+        let isPlaying = false;
+        let currentWords = [];
+        let originalWords = [];
+        let victorySoundPlayed = false;
+        let cheerSoundPlayed = false;
+        let gameWords = [];
+        let currentPrompt = '';
+        let currentQuestion = null;
+        let score = 0;
+        let timerInterval = null;
+        let totalTime = 10 * 60;  // 10分钟
+        let currentTime = totalTime;
+        let gameStartTime = 0;
+        let gameElapsedTime = 0;
+        let optionClickLock = false;
+        let failedWords = [];
+        let audioContext = null;
+        let isAudioEnabled = true;
+        let currentFileName = '';
 
-    // 检查并恢复音频上下文
-    function ensureAudioContext() {
-        if (!isAudioEnabled) return false;
-        
-        if (!audioContext) {
+        document.addEventListener('DOMContentLoaded', function() {
+            loadUsername();
+            setupUsernameHandlers();
+            document.querySelectorAll('.window-btn').forEach(btn => {
+                btn.addEventListener('mouseenter', () => {
+                    playSystemSound('click');
+                });
+            });
+            updateTimerDisplay();
             initAudioContext();
-        }
-        
-        // 如果音频上下文被挂起，恢复它
-        if (audioContext && audioContext.state === 'suspended') {
-            audioContext.resume().then(() => {
-                console.log("音频上下文已恢复");
-            }).catch(e => {
-                console.log("音频上下文恢复失败:", e);
-                isAudioEnabled = false;
-            });
-        }
-        
-        return audioContext && audioContext.state === 'running';
-    }
-
-    // 更新得分显示
-    function updateScoreDisplay() {
-        const scoreElement = document.getElementById('score');
-        if (scoreElement) {
-            scoreElement.textContent = score;
-        }
-    }
-
-    // 更新计时器显示
-    function updateTimerDisplay() {
-        const minutes = Math.floor(currentTime / 60);
-        const seconds = currentTime % 60;
-        const timerElement = document.getElementById('timer');
-        
-        if (timerElement) {
-            timerElement.textContent = 
-                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-        }
-    }
-
-    // 开始计时器
-    function startTimer() {
-        if (timerInterval) {
-            clearInterval(timerInterval);
-            timerInterval = null;
-        }
-        
-        currentTime = totalTime;
-        updateTimerDisplay();
-        
-        // 记录游戏开始时间（用于计算实际用时）
-        gameStartTime = Date.now();
-        
-        const timerElement = document.getElementById('timer');
-        if (timerElement) {
-            timerElement.textContent = "03:00";
-            timerElement.style.color = '#1890ff';
-        }
-        
-        timerInterval = setInterval(() => {
-            if (currentTime > 0) {
-                currentTime--;
-                updateTimerDisplay();
-                
-                // 最后30秒闪烁提醒
-                if (currentTime <= 30) {
-                    const timerElement = document.getElementById('timer');
-                    if (timerElement) {
-                        timerElement.style.color = (currentTime % 2 === 0) ? '#ff4d4f' : '#1890ff';
-                        
-                        if (currentTime <= 10) {
-                            playSystemSound('click');
-                        }
-                    }
-                }
-            } else {
-                clearInterval(timerInterval);
-                timerInterval = null;
-                timeUpGameOver();
-            }
-        }, 1000);
-    }
-
-    // 停止计时器
-    function stopTimer() {
-        if (timerInterval) {
-            clearInterval(timerInterval);
-            timerInterval = null;
-        }
-        
-        const timerElement = document.getElementById('timer');
-        if (timerElement) {
-            timerElement.style.color = '#1890ff';
-        }
-    }
-
-    // 计算实际游戏用时
-    function calculateActualTime() {
-        if (gameStartTime > 0) {
-            const now = Date.now();
-            gameElapsedTime = Math.floor((now - gameStartTime) / 1000);
-            return gameElapsedTime;
-        }
-        return 0;
-    }
-
-    // 格式化用时显示
-    function formatTimeUsed(seconds) {
-        const minutes = Math.floor(seconds / 60);
-        const remainingSeconds = seconds % 60;
-        return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
-    }
-
-    // 时间到游戏结束
-    function timeUpGameOver() {
-        isPlaying = false;
-        
-        // 计算实际用时
-        const actualTime = calculateActualTime();
-        
-        // 收集未完成的单词（还没显示出来的）
-        const unfinished = gameWords.filter(word => !word.used);
-        const timeoutWords = unfinished.map(word => ({
-            english: word.english,
-            chinese: word.chinese,
-            type: 'timeout'
-        }));
-        
-        // 将超时单词添加到未过关单词列表中
-        timeoutWords.forEach(word => {
-            const existingWord = failedWords.find(w => w.english === word.english);
-            if (!existingWord) {
-                failedWords.push(word);
-            }
-        });
-        
-        const totalWords = gameWords.length;
-        
-        // 使用得分来计算正确率
-        const maxPossibleScore = totalWords * 10;
-        const correctRate = maxPossibleScore > 0 ? (score / maxPossibleScore) * 100 : 0;
-        
-        // 不再显示"时间到"，而是根据得分显示相应的鼓励语
-        const encouragementMessage = getEncouragementMessage(score, correctRate);
-        showGameOverScreen(encouragementMessage, unfinished.length, score, correctRate, totalWords, maxPossibleScore, actualTime);
-    }
-
-    // 根据得分和正确率获取鼓励语
-    function getEncouragementMessage(finalScore, correctRate) {
-        if (correctRate === 100) {
-            return "山登绝顶我为峰！";
-        } else if (correctRate >= 80) {
-            return "恭喜！胜利曙光初现！";
-        } else if (correctRate >= 60) {
-            return "坚持！望远山而前行！";
-        } else if (finalScore > 0) {
-            return "加油！知不足而奋进！";
-        } else {
-            return "时间到！下次再接再厉！";
-        }
-    }
-
-    // 创建系统提示音
-    function createSystemSound(frequency, duration, type) {
-        if (!isAudioEnabled || !ensureAudioContext()) {
-            return;
-        }
-        
-        try {
-            const oscillator = audioContext.createOscillator();
-            const gainNode = audioContext.createGain();
-            
-            oscillator.connect(gainNode);
-            gainNode.connect(audioContext.destination);
-            
-            oscillator.frequency.value = frequency;
-            oscillator.type = type || 'sine';
-            
-            const now = audioContext.currentTime;
-            gainNode.gain.setValueAtTime(0, now);
-            gainNode.gain.linearRampToValueAtTime(0.2, now + 0.01);
-            gainNode.gain.exponentialRampToValueAtTime(0.001, now + duration);
-            
-            oscillator.start(now);
-            oscillator.stop(now + duration);
-            
-            setTimeout(() => {
-                oscillator.disconnect();
-                gainNode.disconnect();
-            }, duration * 1000 + 100);
-        } catch (e) {
-            console.log("播放音效失败:", e);
-        }
-    }
-
-    // 播放系统音效
-    function playSystemSound(type) {
-        if (!isAudioEnabled) return;
-        
-        try {
-            switch(type) {
-                case 'victory':
-                    createSystemSound(800, 0.5, 'sine');
-                    setTimeout(() => {
-                        createSystemSound(1000, 0.5, 'sine');
-                    }, 100);
-                    setTimeout(() => {
-                        createSystemSound(1200, 0.5, 'sine');
-                    }, 200);
-                    break;
-                case 'cheer':
-                    for(let i = 0; i < 3; i++) {
-                        setTimeout(() => {
-                            createSystemSound(600 + i * 200, 0.3, 'sine');
-                        }, i * 100);
-                    }
-                    break;
-                case 'correct':
-                    createSystemSound(800, 0.15, 'sine');
-                    setTimeout(() => {
-                        createSystemSound(1200, 0.1, 'sine');
-                    }, 100);
-                    break;
-                case 'wrong':
-                    createSystemSound(400, 0.08, 'sawtooth');
-                    break;
-                case 'click':
-                    createSystemSound(500, 0.05, 'sine');
-                    break;
-                case 'close':
-                    createSystemSound(400, 0.3, 'sine');
-                    setTimeout(() => {
-                        createSystemSound(300, 0.3, 'sine');
-                    }, 100);
-                    setTimeout(() => {
-                        createSystemSound(200, 0.3, 'sine');
-                    }, 200);
-                    break;
-                case 'show_list':
-                    createSystemSound(600, 0.2, 'sine');
-                    setTimeout(() => {
-                        createSystemSound(800, 0.2, 'sine');
-                    }, 50);
-                    setTimeout(() => {
-                        createSystemSound(1000, 0.2, 'sine');
-                    }, 100);
-                    break;
-            }
-        } catch (e) {
-            console.log('音效播放失败:', e);
-        }
-    }
-
-    // 检查游戏是否完成
-    function checkGameCompletion() {
-        if (!isPlaying) return false;
-        
-        const availableWords = gameWords.filter(word => !word.used);
-        
-        if (availableWords.length === 0) {
-            // 计算实际用时
-            const actualTime = calculateActualTime();
-            
-            const totalWords = gameWords.length;
-            const maxPossibleScore = totalWords * 10;
-            const correctRate = maxPossibleScore > 0 ? (score / maxPossibleScore) * 100 : 0;
-            
-            showGameOverScreen('恭喜！您完成了所有单词！', 0, score, correctRate, totalWords, maxPossibleScore, actualTime);
-            return true;
-        }
-        
-        return false;
-    }
-
-    // 显示游戏结束界面
-    function showGameOverScreen(message, remainingWords, finalScore, correctRate, totalWords, maxPossibleScore, actualTime) {
-        isPlaying = false;
-        stopTimer();
-        
-        // 如果之前没有计算用时，现在计算
-        if (!actualTime && actualTime !== 0) {
-            actualTime = calculateActualTime();
-        }
-        
-        if (!victorySoundPlayed && remainingWords === 0) {
-            playSystemSound('victory');
-            victorySoundPlayed = true;
-        }
-        
-        const victoryOverlay = document.getElementById('victoryOverlay');
-        const victoryTitle = document.getElementById('victoryTitle');
-        const victoryMessage = document.getElementById('victoryMessage');
-        const victoryScore = document.getElementById('victoryScore');
-        const fileNameDisplay = document.getElementById('fileNameDisplay');
-        const failedWordsContainer = document.getElementById('failedWordsContainer');
-        const failedWordsContent = document.getElementById('failedWordsContent');
-        const failedWordsCount = document.getElementById('failedWordsCount');
-        
-        console.log("最终统计:", {
-            totalWords,
-            finalScore,
-            maxPossibleScore,
-            correctRate,
-            remainingWords,
-            failedWordsCount: failedWords.length,
-            actualTime
-        });
-        
-        // 设置标题
-        if (remainingWords === 0) {
-            victoryTitle.textContent = "游戏完成";
-            victoryTitle.style.color = "#52c41a";
-        } else {
-            victoryTitle.textContent = "游戏结束";
-            victoryTitle.style.color = "#ff4d4f";
-        }
-        
-        // 根据正确率显示不同的鼓励语
-        let encouragementMessage = "";
-        let messageColor = "#333";
-        
-        if (correctRate === 100) {
-            encouragementMessage = "山登绝顶我为峰！";
-            messageColor = "#ff4d4f";
-        } else if (correctRate >= 80) {
-            encouragementMessage = "恭喜！胜利曙光初现！";
-            messageColor = "#1890ff";
-        } else if (correctRate >= 60) {
-            encouragementMessage = "坚持！望远山而前行！";
-            messageColor = "#faad14";
-        } else {
-            encouragementMessage = "加油！知不足而奋进！";
-            messageColor = "#666";
-        }
-        
-        // 如果不是完成所有单词，显示原消息
-        if (remainingWords > 0) {
-            victoryMessage.textContent = message;
-            victoryMessage.style.color = messageColor;
-        } else {
-            victoryMessage.textContent = encouragementMessage;
-            victoryMessage.style.color = messageColor;
-        }
-        
-        // 更新文件名显示
-        if (fileNameDisplay) {
-            if (currentFileName && currentFileName !== '') {
-                fileNameDisplay.textContent = `单词表: ${currentFileName}`;
-                fileNameDisplay.style.display = 'flex';
-            } else {
-                fileNameDisplay.textContent = '未加载单词表';
-                fileNameDisplay.style.display = 'flex';
-            }
-        }
-        
-        // 修改得分显示 - 总分、正确率和用时分三行显示
-        victoryScore.innerHTML = `
-            <div class="score-line" style="margin-bottom: 4px;">
-                <span>总分: <span class="final-score">${finalScore}</span> 分</span>
-                <span style="margin: 0 8px; color: #ccc;">|</span>
-                <span>满分: ${maxPossibleScore}分</span>
-            </div>
-            <div class="score-line" style="margin: 4px 0;">
-                <span>正确率: <span class="accuracy-rate">${correctRate.toFixed(1)}%</span></span>
-                <span style="margin: 0 8px; color: #ccc;">|</span>
-                <span>单词数: ${totalWords}</span>
-            </div>
-            <div class="score-line" style="margin-top: 4px;">
-                <span>用时: <span class="time-used">${formatTimeUsed(actualTime)}</span></span>
-                <span style="margin: 0 8px; color: #ccc;">|</span>
-                <span>剩余时间: ${formatTimeUsed(currentTime)}</span>
-            </div>
-        `;
-        
-        // 显示未过关单词（扣了5分的单词 + 超时未能点击的单词）
-        if (failedWords.length > 0) {
-            failedWordsContent.innerHTML = '';
-            failedWordsCount.textContent = failedWords.length + '个';
-            
-            failedWords.forEach(word => {
-                const item = document.createElement('div');
-                item.className = `failed-word-item ${word.type === 'click-wrong' ? 'click-wrong-word' : 'timeout-word'}`;
-                
-                const iconClass = word.type === 'click-wrong' ? 'click-wrong-icon' : 'timeout-icon';
-                const icon = word.type === 'click-wrong' ? 'fa-times' : 'fa-clock';
-                const typeText = word.type === 'click-wrong' ? '点击错误' : '超时未完成';
-                const typeClass = word.type === 'click-wrong' ? 'click-wrong-type' : 'timeout-type';
-                
-                item.innerHTML = `
-                    <div style="display: flex; align-items: center;">
-                        <div class="failed-word-icon ${iconClass}">
-                            <i class="fas ${icon}"></i>
-                        </div>
-                        <span class="failed-english">${word.english}</span>
-                        <span class="failed-word-type ${typeClass}">${typeText}</span>
-                    </div>
-                    <span class="failed-chinese">${word.chinese}</span>
-                `;
-                failedWordsContent.appendChild(item);
-            });
-            failedWordsContainer.style.display = 'block';
-        } else {
-            failedWordsContainer.innerHTML = `
-                <div class="failed-words-title">
-                    <span><i class="fas fa-exclamation-triangle"></i> 未过关单词</span>
-                    <span class="failed-words-count">0个</span>
-                </div>
-                <div class="failed-words-content" style="display: flex; align-items: center; justify-content: center; height: 100%;">
-                    <div style="text-align: center; color: #999; font-size: 16px; padding: 12px;">
-                        <i class="fas fa-check-circle" style="font-size: 28px; margin-bottom: 6px; color: #52c41a;"></i>
-                        <div>恭喜！没有未过关的单词！</div>
-                    </div>
-                </div>
-            `;
-            failedWordsContainer.style.display = 'block';
-        }
-        
-        victoryOverlay.style.display = 'flex';
-        
-        // 确保内容完全显示（滚动到顶部）
-        setTimeout(() => {
-            victoryOverlay.scrollTop = 0;
-        }, 100);
-        
-        const btn = document.getElementById('controlBtn');
-        btn.innerHTML = '<i class="fas fa-play"></i> 重新挑战';
-        btn.style.background = 'linear-gradient(45deg, #36cfc9, #1890ff)';
-    }
-
-    // 加分
-    function addScore(points = 10) {
-        score += points;
-        if (score < 0) score = 0;
-        updateScoreDisplay();
-        
-        const scoreElement = document.getElementById('score');
-        scoreElement.classList.add('score-animate');
-        
-        setTimeout(() => {
-            scoreElement.classList.remove('score-animate');
-        }, 300);
-    }
-
-    // 扣分
-    function deductScore(points = 5) {
-        if (score > 0) {
-            score -= points;
-            if (score < 0) score = 0;
-        }
-        updateScoreDisplay();
-        
-        const scoreElement = document.getElementById('score');
-        scoreElement.classList.add('score-animate');
-        
-        setTimeout(() => {
-            scoreElement.classList.remove('score-animate');
-        }, 300);
-    }
-
-    // 加载单词表 - 增强版，包含完整的FileReader处理
-    function loadWords(file) {
-        if (!file) {
-            alert('请选择一个文件！');
-            return;
-        }
-        
-        const fileStatus = document.getElementById('fileStatus');
-        fileStatus.textContent = '正在加载文件...';
-        fileStatus.style.color = '#faad14';
-        
-        const fileName = file.name.toLowerCase();
-        
-        console.log("开始加载文件:", file.name, "类型:", fileName);
-        
-        if (fileName.endsWith('.txt')) {
-            loadTxtFileEnhanced(file);
-        } else if (fileName.endsWith('.docx') || fileName.endsWith('.doc')) {
-            loadDocxFileEnhanced(file);
-        } else {
-            fileStatus.textContent = '不支持的文件格式';
-            fileStatus.style.color = '#ff4d4f';
-            alert('只支持.txt、.docx和.doc格式的文件！');
-            return;
-        }
-    }
-
-    // 增强版：加载TXT文件
-    function loadTxtFileEnhanced(file) {
-        console.log("开始加载TXT文件:", file.name);
-        
-        const reader = new FileReader();
-        
-        reader.onloadstart = function(e) {
-            console.log('FileReader: 开始加载文件');
-        };
-        
-        reader.onprogress = function(e) {
-            if (e.lengthComputable) {
-                const percentLoaded = Math.round((e.loaded / e.total) * 100);
-                console.log(`加载进度: ${percentLoaded}%`);
-            }
-        };
-        
-        reader.onload = function(e) {
-            console.log('FileReader: 文件加载完成');
-            
-            try {
-                const content = e.target.result;
-                console.log(`文件内容长度: ${content.length} 字符`);
-                
-                processWordContent(content, file.name);
-            } catch (error) {
-                console.log('处理TXT文件失败: ' + error.message);
-                document.getElementById('fileStatus').textContent = '加载失败';
-                document.getElementById('fileStatus').style.color = '#ff4d4f';
-                alert('加载TXT文件失败，请检查文件格式！\n错误信息: ' + error.message);
-            }
-        };
-        
-        reader.onerror = function(e) {
-            console.log('FileReader: 读取文件失败');
-            
-            document.getElementById('fileStatus').textContent = '读取失败';
-            document.getElementById('fileStatus').style.color = '#ff4d4f';
-            alert('读取文件失败！请确保文件未损坏且具有读取权限。');
-        };
-        
-        reader.onabort = function(e) {
-            console.log('FileReader: 文件读取被中止');
-        };
-        
-        // 开始读取
-        try {
-            reader.readAsText(file, 'UTF-8');
-        } catch (error) {
-            alert('无法读取文件: ' + error.message);
-        }
-    }
-
-    // 增强版：加载DOCX/DOC文件
-    function loadDocxFileEnhanced(file) {
-        console.log("开始加载DOCX/DOC文件:", file.name);
-        
-        const reader = new FileReader();
-        
-        reader.onloadstart = function(e) {
-            console.log('FileReader: 开始加载DOCX/DOC文件');
-        };
-        
-        reader.onload = function(e) {
-            console.log('FileReader: DOCX/DOC文件加载完成');
-            
-            try {
-                const arrayBuffer = e.target.result;
-                
-                mammoth.extractRawText({arrayBuffer: arrayBuffer})
-                    .then(function(result) {
-                        console.log('mammoth: 文档解析成功');
-                        const content = result.value;
-                        
-                        processWordContent(content, file.name);
-                    })
-                    .catch(function(error) {
-                        console.log('mammoth解析失败: ' + error.message);
-                        document.getElementById('fileStatus').textContent = '解析失败';
-                        document.getElementById('fileStatus').style.color = '#ff4d4f';
-                        alert('解析DOCX/DOC文件失败，请确保文件格式正确！\n\n支持格式：\n1. 英文,中文\n2. 英文 中文\n3. 英文:中文\n4. 英文\t中文\n\n错误信息: ' + error.message);
-                    });
-            } catch (error) {
-                console.log('处理DOCX文件失败: ' + error.message);
-                document.getElementById('fileStatus').textContent = '加载失败';
-                document.getElementById('fileStatus').style.color = '#ff4d4f';
-                alert('加载DOCX/DOC文件失败！\n错误信息: ' + error.message);
-            }
-        };
-        
-        reader.onerror = function(e) {
-            console.log('FileReader: 读取DOCX文件失败');
-            
-            document.getElementById('fileStatus').textContent = '读取失败';
-            document.getElementById('fileStatus').style.color = '#ff4d4f';
-            alert('读取DOCX/DOC文件失败！请确保文件未损坏且具有读取权限。');
-        };
-        
-        reader.onabort = function(e) {
-            console.log('FileReader: DOCX文件读取被中止');
-        };
-        
-        // 开始读取
-        try {
-            reader.readAsArrayBuffer(file);
-        } catch (error) {
-            alert('无法读取DOCX/DOC文件: ' + error.message);
-        }
-    }
-
-    // 处理单词内容 - 修复单词解析逻辑
-    function processWordContent(content, fileName) {
-        try {
-            console.log(`开始处理单词内容，文件名: ${fileName}`);
-            
-            // 分割行并清理
-            const lines = content.split('\n')
-                .map(line => line.trim())
-                .filter(line => line.length > 0);
-            
-            console.log(`共找到 ${lines.length} 行`);
-            
-            const loadedWords = [];
-            let parseErrors = [];
-            
-            for (let i = 0; i < lines.length; i++) {
-                const line = lines[i];
-                let english = '', chinese = '';
-                
-                // 尝试多种分隔符，优先使用明确的分隔符
-                let parsed = false;
-                
-                // 1. 首先尝试英文逗号+空格
-                if (line.includes(', ')) {
-                    const parts = line.split(', ');
-                    if (parts.length >= 2) {
-                        english = parts[0].trim();
-                        chinese = parts.slice(1).join(', ').trim();
-                        parsed = true;
-                    }
-                }
-                // 2. 尝试英文逗号（没有空格）
-                else if (line.includes(',')) {
-                    const parts = line.split(',');
-                    if (parts.length >= 2) {
-                        english = parts[0].trim();
-                        chinese = parts.slice(1).join(',').trim();
-                        parsed = true;
-                    }
-                }
-                // 3. 尝试中文逗号
-                else if (line.includes('，')) {
-                    const parts = line.split('，');
-                    if (parts.length >= 2) {
-                        english = parts[0].trim();
-                        chinese = parts.slice(1).join('，').trim();
-                        parsed = true;
-                    }
-                }
-                // 4. 尝试制表符
-                else if (line.includes('\t')) {
-                    const parts = line.split('\t');
-                    if (parts.length >= 2) {
-                        english = parts[0].trim();
-                        chinese = parts.slice(1).join('\t').trim();
-                        parsed = true;
-                    }
-                }
-                // 5. 尝试冒号
-                else if (line.includes(':')) {
-                    const parts = line.split(':');
-                    if (parts.length >= 2) {
-                        english = parts[0].trim();
-                        chinese = parts.slice(1).join(':').trim();
-                        parsed = true;
-                    }
-                }
-                // 6. 尝试中文冒号
-                else if (line.includes('：')) {
-                    const parts = line.split('：');
-                    if (parts.length >= 2) {
-                        english = parts[0].trim();
-                        chinese = parts.slice(1).join('：').trim();
-                        parsed = true;
-                    }
-                }
-                // 7. 尝试空格分隔 - 关键修复：从行尾开始向前查找最后一个空格
-                else if (line.includes(' ')) {
-                    const lastSpaceIndex = line.lastIndexOf(' ');
-                    if (lastSpaceIndex > 0) {
-                        let potentialEnglish = line.substring(0, lastSpaceIndex).trim();
-                        let potentialChinese = line.substring(lastSpaceIndex + 1).trim();
-                        
-                        if (potentialEnglish.includes('(') && !potentialEnglish.includes(')')) {
-                            const rightParenIndex = potentialChinese.indexOf(')');
-                            if (rightParenIndex !== -1) {
-                                english = potentialEnglish + ' ' + potentialChinese.substring(0, rightParenIndex + 1);
-                                chinese = potentialChinese.substring(rightParenIndex + 1).trim();
-                                parsed = true;
-                            } else {
-                                english = potentialEnglish;
-                                chinese = potentialChinese;
-                                parsed = true;
-                            }
-                        } else {
-                            english = potentialEnglish;
-                            chinese = potentialChinese;
-                            parsed = true;
-                        }
-                    }
-                }
-                
-                if (parsed && english && chinese) {
-                    english = english.replace(/^[^a-zA-Z\(\)\[\]\s]+|[^a-zA-Z\(\)\[\]\s]+$/g, '');
-                    
-                    if (english && chinese) {
-                        loadedWords.push({ 
-                            english: english.trim(), 
-                            chinese: chinese.trim(),
-                            used: false,
-                            deducted: false
-                        });
-                    } else {
-                        parseErrors.push(`第${i+1}行: 解析后内容为空`);
-                    }
-                } else {
-                    parseErrors.push(`第${i+1}行: 无法解析格式 - "${line}"`);
-                }
-            }
-            
-            if (loadedWords.length === 0) {
-                const fileStatus = document.getElementById('fileStatus');
-                fileStatus.textContent = '文件格式错误';
-                fileStatus.style.color = '#ff4d4f';
-                alert(`无法解析单词表！\n\n支持格式：\n1. 英文,中文\n2. 英文 中文\n3. 英文:中文\n4. 英文\t中文\n\n解析失败的行数: ${parseErrors.length}\n共找到 ${lines.length} 行`);
-                return;
-            }
-            
-            originalWords = [...loadedWords];
-            currentWords = [...loadedWords];
-            
-            // 保存当前文件名
-            currentFileName = fileName;
-            
-            // 修复：添加文件名到状态显示
-            const fileStatus = document.getElementById('fileStatus');
-            fileStatus.textContent = `已加载 ${currentWords.length} 个单词 (${fileName})`;
-            fileStatus.style.color = '#52c41a';
-            
-            // 更新文件名显示
             const fileNameDisplay = document.getElementById('fileNameDisplay');
             if (fileNameDisplay) {
-                fileNameDisplay.textContent = `单词表: ${fileName}`;
-            }
-            
-            console.log(`成功加载 ${loadedWords.length} 个单词`);
-            setupGame();
-            
-            // 新增：显示单词列表预览
-            showWordListPreview(loadedWords, fileName);
-            
-        } catch (error) {
-            console.error("处理单词内容失败:", error);
-            const fileStatus = document.getElementById('fileStatus');
-            fileStatus.textContent = '处理失败';
-            fileStatus.style.color = '#ff4d4f';
-            alert('处理单词内容失败，请检查文件格式！\n错误信息: ' + error.message);
-        }
-    }
-
-    // 新增：显示单词列表预览
-    function showWordListPreview(words, fileName) {
-        console.log(`显示单词列表预览，单词数: ${words.length}`);
-        
-        const wordListOverlay = document.getElementById('wordListOverlay');
-        const wordListHeader = document.getElementById('wordListHeader');
-        const wordListStats = document.getElementById('wordListStats');
-        const wordListContent = document.getElementById('wordListContent');
-        
-        // 播放显示列表的音效
-        playSystemSound('show_list');
-        
-        // 更新标题和统计信息
-        wordListHeader.innerHTML = `<i class="fas fa-check-circle" style="color: #52c41a; margin-right: 6px;"></i> 复习后点击关闭`;
-        wordListStats.textContent = `单词表: ${fileName} | 共 ${words.length} 个单词`;
-        
-        // 创建表格
-        let tableHTML = `
-            <table class="word-list-table">
-                <thead>
-                    <tr>
-                        <th style="width: 10%;">序号</th>
-                        <th style="width: 45%;">英文</th>
-                        <th style="width: 45%;">中文</th>
-                    </tr>
-                </thead>
-                <tbody>
-        `;
-        
-        // 添加每个单词行
-        words.forEach((word, index) => {
-            tableHTML += `
-                <tr>
-                    <td style="text-align: center; font-weight: bold; color: #666;">${index + 1}</td>
-                    <td class="word-english">${word.english}</td>
-                    <td class="word-chinese">${word.chinese}</td>
-                </tr>
-            `;
-        });
-        
-        tableHTML += `
-                </tbody>
-            </table>
-        `;
-        
-        wordListContent.innerHTML = tableHTML;
-        
-        // 显示单词列表弹窗
-        wordListOverlay.style.display = 'flex';
-        
-        // 确保内容完全显示（滚动到顶部）
-        setTimeout(() => {
-            wordListContent.scrollTop = 0;
-        }, 100);
-        
-        console.log('单词列表预览已显示');
-    }
-
-    // 新增：关闭单词列表预览
-    function closeWordList() {
-        console.log("关闭单词列表预览");
-        playSystemSound('click');
-        document.getElementById('wordListOverlay').style.display = 'none';
-        
-        // 显示成功提示
-        alert(`单词表加载成功！\n\n文件名: ${currentFileName}\n单词数量: ${currentWords.length}个\n\n现在可以点击"挑战开始"按钮开始游戏！`);
-    }
-
-    // 重置游戏状态
-    function resetGameState() {
-        console.log("重置游戏状态");
-        
-        document.querySelectorAll('.option-btn').forEach(btn => btn.remove());
-        
-        // 修改：将提示文字改为"Ready！Go！"
-        document.getElementById('prompt').textContent = 'Ready！Go！';
-        
-        // 更新文件名显示
-        const fileNameDisplay = document.getElementById('fileNameDisplay');
-        if (fileNameDisplay) {
-            if (currentFileName) {
-                fileNameDisplay.textContent = `单词表: ${currentFileName}`;
-            } else {
                 fileNameDisplay.textContent = '未加载单词表';
             }
-        }
-        
-        if (originalWords.length > 0) {
-            const allWords = originalWords.map(word => ({
-                ...word, 
-                used: false,
-                deducted: false
-            }));
-            currentWords = [...allWords];
-            
-            gameWords = [...allWords];
-            currentQuestion = null;
-            currentPrompt = '';
-            
-            document.getElementById('word-count').textContent = `单词数: ${gameWords.filter(word => !word.used).length}`;
-            
-            // 清空选项容器
+            console.log("页面加载完成");
             const container = document.getElementById('options');
             container.innerHTML = '';
             for (let i = 0; i < 4; i++) {
@@ -2823,449 +1754,1119 @@
                 btn.disabled = true;
                 container.appendChild(btn);
             }
-        } else {
-            document.getElementById('word-count').textContent = `单词数: 0`;
-        }
-        
-        score = 0;
-        updateScoreDisplay();
-        
-        // 重置计时器显示为初始值
-        currentTime = totalTime;
-        updateTimerDisplay();
-        const timerElement = document.getElementById('timer');
-        if (timerElement) {
-            timerElement.textContent = "03:00";
-            timerElement.style.color = '#1890ff';
-        }
-        
-        // 重置用时记录
-        gameStartTime = 0;
-        gameElapsedTime = 0;
-        
-        failedWords = [];
-        
-        isPlaying = false;
-        stopTimer();
-        
-        document.getElementById('controlBtn').innerHTML = '<i class="fas fa-play"></i> 挑战开始';
-        document.getElementById('controlBtn').style.background = 'linear-gradient(45deg, #ff4d4f, #ff7875)';
-        
-        victorySoundPlayed = false;
-        cheerSoundPlayed = false;
-        
-        optionClickLock = false;
-        
-        console.log("游戏状态已重置");
-    }
+        });
 
-    function setupGame() {
-        resetGameState();
-        
-        if (originalWords.length > 0) {
-            document.getElementById('prompt').textContent = 'Ready！Go！';
-        }
-        
-        console.log(`游戏初始化完成，单词数: ${currentWords.length}`);
-    }
-
-    // 重新开始游戏
-    function restartGame() {
-        closeVictoryScreen();
-        resetGameState();
-        
-        alert('游戏已重新开始！\n单词和得分已重置，计时器重置为3分钟。');
-    }
-
-    // 为游戏创建选项
-    function createOptions() {
-        const container = document.getElementById('options');
-        container.innerHTML = '';
-        
-        const availableWords = gameWords.filter(word => !word.used);
-        
-        if (availableWords.length === 0) {
-            for (let i = 0; i < 4; i++) {
-                const btn = document.createElement('button');
-                btn.className = 'option-btn';
-                btn.textContent = '---';
-                btn.disabled = true;
-                container.appendChild(btn);
+        function initAudioContext() {
+            try {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                console.log("音频上下文初始化成功");
+            } catch (e) {
+                console.log("音频上下文初始化失败:", e);
+                isAudioEnabled = false;
             }
-            return;
         }
-        
-        let correctWord, wrongOptions;
-        
-        if (currentQuestion) {
-            correctWord = currentQuestion.correct;
-            wrongOptions = currentQuestion.wrongOptions;
-        } else {
-            const correctIndex = Math.floor(Math.random() * availableWords.length);
-            correctWord = availableWords[correctIndex];
-            
-            wrongOptions = [];
-            const otherWords = availableWords.filter((_, index) => index !== correctIndex);
-            const shuffledOthers = [...otherWords].sort(() => Math.random() - 0.5);
-            
-            for (let i = 0; i < Math.min(3, shuffledOthers.length); i++) {
-                wrongOptions.push(shuffledOthers[i]);
+
+        function ensureAudioContext() {
+            if (!isAudioEnabled) return false;
+            if (!audioContext) {
+                initAudioContext();
             }
-            
-            while (wrongOptions.length < 3) {
-                const usedWords = gameWords.filter(word => word.used);
-                if (usedWords.length > 0) {
-                    const randomUsedWord = usedWords[Math.floor(Math.random() * usedWords.length)];
-                    if (!wrongOptions.includes(randomUsedWord) && randomUsedWord !== correctWord) {
-                        wrongOptions.push(randomUsedWord);
+            if (audioContext && audioContext.state === 'suspended') {
+                audioContext.resume().then(() => {
+                    console.log("音频上下文已恢复");
+                }).catch(e => {
+                    console.log("恢复音频上下文失败:", e);
+                    isAudioEnabled = false;
+                });
+            }
+            return audioContext && audioContext.state === 'running';
+        }
+
+        function updateScoreDisplay() {
+            const scoreElement = document.getElementById('score');
+            if (scoreElement) {
+                scoreElement.textContent = score;
+            }
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(currentTime / 60);
+            const seconds = currentTime % 60;
+            const timerElement = document.getElementById('timer');
+            if (timerElement) {
+                timerElement.textContent = 
+                    `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            }
+        }
+
+        function startTimer() {
+            console.log("开始计时器...");
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+            }
+            currentTime = totalTime;
+            updateTimerDisplay();
+            gameStartTime = Date.now();
+            const timerElement = document.getElementById('timer');
+            if (timerElement) {
+                timerElement.style.color = '#1890ff';
+            }
+            timerInterval = setInterval(() => {
+                if (currentTime > 0) {
+                    currentTime--;
+                    updateTimerDisplay();
+                    if (currentTime <= 30) {
+                        const timerElement = document.getElementById('timer');
+                        if (timerElement) {
+                            timerElement.style.color = (currentTime % 2 === 0) ? '#ff4d4f' : '#1890ff';
+                            if (currentTime <= 10) {
+                                playSystemSound('click');
+                            }
+                        }
                     }
                 } else {
-                    if (wrongOptions.length > 0) {
-                        wrongOptions.push(wrongOptions[wrongOptions.length - 1]);
-                    }
+                    clearInterval(timerInterval);
+                    timerInterval = null;
+                    timeUpGameOver();
+                }
+            }, 1000);
+        }
+
+        function stopTimer() {
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+            }
+            const timerElement = document.getElementById('timer');
+            if (timerElement) {
+                timerElement.style.color = '#1890ff';
+            }
+        }
+
+        function calculateActualTime() {
+            if (gameStartTime > 0) {
+                const now = Date.now();
+                gameElapsedTime = Math.floor((now - gameStartTime) / 1000);
+                return gameElapsedTime;
+            }
+            return 0;
+        }
+
+        function formatTimeUsed(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = seconds % 60;
+            return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+        }
+
+        function timeUpGameOver() {
+            isPlaying = false;
+            const actualTime = calculateActualTime();
+            const unfinished = gameWords.filter(word => !word.used);
+            const timeoutWords = unfinished.map(word => ({
+                english: word.english,
+                chinese: word.chinese,
+                type: 'timeout'
+            }));
+            timeoutWords.forEach(word => {
+                const existingWord = failedWords.find(w => w.english === word.english);
+                if (!existingWord) {
+                    failedWords.push(word);
+                }
+            });
+            const totalWords = gameWords.length;
+            const maxPossibleScore = totalWords * 10;
+            const correctRate = maxPossibleScore > 0 ? (score / maxPossibleScore) * 100 : 0;
+            const encouragementMessage = getEncouragementMessage(score, correctRate);
+            showGameOverScreen(encouragementMessage, unfinished.length, score, correctRate, totalWords, maxPossibleScore, actualTime);
+        }
+
+        function getEncouragementMessage(finalScore, correctRate) {
+            if (correctRate === 100) {
+                return "须知少时凌云志，曾许人间第一流。";
+            } else if (correctRate >= 80) {
+                return "不想满心遗憾，那就拼尽全力。";
+            } else if (correctRate >= 60) {
+                return "同是窗寒苦读，怎愿甘拜下风。";
+            } else if (finalScore > 0) {
+                return "知不足而奋进，望远山而前行。";
+            } else {
+                return "前方无绝路，希望在转角。";
+            }
+        }
+
+        function createSystemSound(frequency, duration, type) {
+            if (!isAudioEnabled || !ensureAudioContext()) {
+                return;
+            }
+            try {
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                oscillator.frequency.value = frequency;
+                oscillator.type = type || 'sine';
+                const now = audioContext.currentTime;
+                gainNode.gain.setValueAtTime(0, now);
+                gainNode.gain.linearRampToValueAtTime(0.2, now + 0.01);
+                gainNode.gain.exponentialRampToValueAtTime(0.001, now + duration);
+                oscillator.start(now);
+                oscillator.stop(now + duration);
+                setTimeout(() => {
+                    oscillator.disconnect();
+                    gainNode.disconnect();
+                }, duration * 1000 + 100);
+            } catch (e) {
+                console.log("播放音效失败:", e);
+            }
+        }
+
+        function playSystemSound(type) {
+            if (!isAudioEnabled) return;
+            try {
+                switch(type) {
+                    case 'victory':
+                        createSystemSound(800, 0.5, 'sine');
+                        setTimeout(() => { createSystemSound(1000, 0.5, 'sine'); }, 100);
+                        setTimeout(() => { createSystemSound(1200, 0.5, 'sine'); }, 200);
+                        break;
+                    case 'cheer':
+                        for(let i = 0; i < 3; i++) {
+                            setTimeout(() => { createSystemSound(600 + i * 200, 0.3, 'sine'); }, i * 100);
+                        }
+                        break;
+                    case 'correct':
+                        createSystemSound(800, 0.15, 'sine');
+                        setTimeout(() => { createSystemSound(1200, 0.1, 'sine'); }, 100);
+                        break;
+                    case 'wrong':
+                        createSystemSound(400, 0.08, 'sawtooth');
+                        break;
+                    case 'click':
+                        createSystemSound(500, 0.05, 'sine');
+                        break;
+                    case 'close':
+                        createSystemSound(400, 0.3, 'sine');
+                        setTimeout(() => { createSystemSound(300, 0.3, 'sine'); }, 100);
+                        setTimeout(() => { createSystemSound(200, 0.3, 'sine'); }, 200);
+                        break;
+                    case 'show_list':
+                        createSystemSound(600, 0.2, 'sine');
+                        setTimeout(() => { createSystemSound(800, 0.2, 'sine'); }, 50);
+                        setTimeout(() => { createSystemSound(1000, 0.2, 'sine'); }, 100);
+                        break;
+                    case 'screenshot':
+                        createSystemSound(600, 0.1, 'sine');
+                        setTimeout(() => { createSystemSound(800, 0.2, 'sine'); }, 50);
+                        break;
+                }
+            } catch (e) {
+                console.log('音效播放失败:', e);
+            }
+        }
+
+        function addScore(points = 10) {
+            score += points;
+            if (score < 0) score = 0;
+            updateScoreDisplay();
+            const scoreElement = document.getElementById('score');
+            scoreElement.classList.add('score-animate');
+            setTimeout(() => { scoreElement.classList.remove('score-animate'); }, 300);
+        }
+
+        function deductScore(points = 5) {
+            if (score > 0) {
+                score -= points;
+                if (score < 0) score = 0;
+                updateScoreDisplay();
+                const scoreElement = document.getElementById('score');
+                scoreElement.classList.add('score-animate');
+                setTimeout(() => { scoreElement.classList.remove('score-animate'); }, 300);
+                return true;
+            }
+            return false;
+        }
+
+        function checkGameCompletion() {
+            if (!isPlaying) return false;
+            const availableWords = gameWords.filter(word => !word.used);
+            if (availableWords.length === 0) {
+                const actualTime = calculateActualTime();
+                const totalWords = gameWords.length;
+                const maxPossibleScore = totalWords * 10;
+                const correctRate = maxPossibleScore > 0 ? (score / maxPossibleScore) * 100 : 0;
+                showGameOverScreen('恭喜！您完成了所有单词！', 0, score, correctRate, totalWords, maxPossibleScore, actualTime);
+                return true;
+            }
+            return false;
+        }
+
+        function showGameOverScreen(message, remainingWords, finalScore, correctRate, totalWords, maxPossibleScore, actualTime) {
+            isPlaying = false;
+            stopTimer();
+            if (!actualTime && actualTime !== 0) {
+                actualTime = calculateActualTime();
+            }
+            if (!victorySoundPlayed && remainingWords === 0) {
+                playSystemSound('victory');
+                victorySoundPlayed = true;
+            }
+            const victoryOverlay = document.getElementById('victoryOverlay');
+            const victoryTitle = document.getElementById('victoryTitle');
+            const victoryUsername = document.getElementById('victoryUsername');
+            const victoryMessage = document.getElementById('victoryMessage');
+            const victoryScore = document.getElementById('victoryScore');
+            const fileNameDisplay = document.getElementById('fileNameDisplay');
+            const failedWordsContainer = document.getElementById('failedWordsContainer');
+            const failedWordsContent = document.getElementById('failedWordsContent');
+            const failedWordsCount = document.getElementById('failedWordsCount');
+            
+            console.log("最终统计:", {
+                totalWords,
+                finalScore,
+                maxPossibleScore,
+                correctRate,
+                remainingWords,
+                failedWordsCount: failedWords.length,
+                actualTime
+            });
+            
+            if (remainingWords === 0) {
+                victoryTitle.textContent = "游戏完成";
+                victoryTitle.style.color = "#3f4241";
+            } else {
+                victoryTitle.textContent = "游戏结束";
+                victoryTitle.style.color = "#3f4241";
+            }
+            
+            let encouragementText = "";
+            let messageColor = "#333";
+            if (correctRate === 100) {
+                encouragementText = "须知少时凌云志，曾许人间第一流。";
+                messageColor = "#ff4d4f";
+            } else if (correctRate >= 80) {
+                encouragementText = "不想满心遗憾，那就拼尽全力。";
+                messageColor = "#1890ff";
+            } else if (correctRate >= 60) {
+                encouragementText = "同是窗寒苦读，怎愿甘拜下风。";
+                messageColor = "#faad14";
+            } else if (finalScore > 0) {
+                encouragementText = "知不足而奋进，望远山而前行。";
+                messageColor = "#666";
+            } else {
+                encouragementText = "前方无绝路，希望在转角。";
+                messageColor = "#666";
+            }
+            
+            const displayText = (remainingWords > 0) ? message : encouragementText;
+            
+            if (username && username.trim() !== '') {
+                victoryUsername.textContent = username;
+                victoryUsername.style.display = 'block';
+            } else {
+                victoryUsername.style.display = 'none';
+            }
+            
+            victoryMessage.textContent = displayText;
+            victoryMessage.style.color = messageColor;
+            
+            if (fileNameDisplay) {
+                if (currentFileName && currentFileName !== '') {
+                    fileNameDisplay.textContent = `单词表: ${currentFileName}`;
+                    fileNameDisplay.style.display = 'flex';
+                } else {
+                    fileNameDisplay.textContent = '未加载单词表';
+                    fileNameDisplay.style.display = 'flex';
                 }
             }
             
-            currentQuestion = {
-                correct: correctWord,
-                wrongOptions: wrongOptions
-            };
+            victoryScore.innerHTML = `
+                <div class="score-line" style="margin-bottom: 2px;">
+                    <span>总分: <span class="final-score">${finalScore}</span> 分</span>
+                    <span style="margin: 0 8px; color: #ccc;">|</span>
+                    <span>满分: ${maxPossibleScore}分</span>
+                </div>
+                <div class="score-line" style="margin: 2px 0;">
+                    <span>正确率: <span class="accuracy-rate">${correctRate.toFixed(1)}%</span></span>
+                    <span style="margin: 0 8px; color: #ccc;">|</span>
+                    <span>单词数: ${totalWords}</span>
+                </div>
+                <div class="score-line" style="margin-top: 2px;">
+                    <span>用时: <span class="time-used">${formatTimeUsed(actualTime)}</span></span>
+                    <span style="margin: 0 8px; color: #ccc;">|</span>
+                    <span>剩余时间: ${formatTimeUsed(currentTime)}</span>
+                </div>
+            `;
             
-            currentPrompt = correctWord.english;
-            document.getElementById('prompt').textContent = correctWord.english;
-        }
-        
-        const allOptions = [correctWord, ...wrongOptions];
-        const shuffledOptions = [...allOptions].sort(() => Math.random() - 0.5);
-        
-        const labels = ['A', 'B', 'C', 'D'];
-        for (let i = 0; i < 4; i++) {
-            const option = shuffledOptions[i] || correctWord;
-            const btn = document.createElement('button');
-            btn.className = 'option-btn';
-            btn.dataset.chinese = option.chinese;
-            btn.dataset.english = option.english;
-            btn.textContent = option.chinese;
+            // 无论是否有未过关单词，容器始终显示
+            failedWordsContainer.style.display = 'flex';
             
-            const label = document.createElement('div');
-            label.className = 'option-label';
-            label.textContent = labels[i];
-            btn.appendChild(label);
-            
-            btn.onclick = () => {
-                playSystemSound('click');
-                handleOptionClick(option.chinese, option.english, correctWord.english, btn);
-            };
-            
-            container.appendChild(btn);
-        }
-    }
-
-    // 处理选项点击
-    function handleOptionClick(selectedChinese, selectedEnglish, correctEnglish, btn) {
-        if (!isPlaying) return;
-        
-        if (optionClickLock) {
-            console.log("点击被锁定，忽略");
-            return;
-        }
-        
-        btn.disabled = true;
-        optionClickLock = true;
-        
-        console.log(`点击选项: ${selectedChinese} (英文: ${selectedEnglish}, 正确答案: ${correctEnglish})`);
-        
-        if (selectedEnglish === correctEnglish && selectedEnglish === currentPrompt) {
-            // 正确答案处理
-            btn.classList.add('correct');
-            playSystemSound('correct');
-            
-            // 检查这个单词是否之前被扣过5分
-            const wordIndex = gameWords.findIndex(word => word.english === selectedEnglish);
-            let isDeductedWord = false;
-            
-            if (wordIndex !== -1) {
-                isDeductedWord = gameWords[wordIndex].deducted;
-                
-                // 标记为已使用
-                gameWords[wordIndex].used = true;
-                
-                // 如果这个单词之前被扣过5分，它已经在未过关单词列表中，不需要移除
-                // 如果没被扣过分，正常加分
-                if (!isDeductedWord) {
-                    addScore(10);
-                } else {
-                    console.log(`单词"${selectedEnglish}"之前被扣过5分，本次答对不加分`);
-                }
+            if (failedWords.length > 0) {
+                failedWordsContent.innerHTML = '';
+                failedWordsCount.textContent = failedWords.length + '个';
+                failedWords.forEach(word => {
+                    const item = document.createElement('div');
+                    item.className = `failed-word-item ${word.type === 'click-wrong' ? 'click-wrong-word' : 'timeout-word'}`;
+                    const iconClass = word.type === 'click-wrong' ? 'click-wrong-icon' : 'timeout-icon';
+                    const icon = word.type === 'click-wrong' ? 'fa-times' : 'fa-clock';
+                    const typeText = word.type === 'click-wrong' ? '点击错误' : '超时未完成';
+                    const typeClass = word.type === 'click-wrong' ? 'click-wrong-type' : 'timeout-type';
+                    item.innerHTML = `
+                        <div style="display: flex; align-items: center;">
+                            <div class="failed-word-icon ${iconClass}">
+                                <i class="fas ${icon}"></i>
+                            </div>
+                            <span class="failed-english">${word.english}</span>
+                            <span class="failed-word-type ${typeClass}">${typeText}</span>
+                        </div>
+                        <span class="failed-chinese">${word.chinese}</span>
+                    `;
+                    failedWordsContent.appendChild(item);
+                });
+            } else {
+                // 无未过关单词：显示三行励志语
+                failedWordsContent.innerHTML = `
+                    <div class="full-score-message">
+                        <div>愿你历经万难，仍有少年凌云志；</div>
+                        <div>愿你踏破山河，不忘来时风雨路；</div>
+                        <div>愿你一路生花，前路繁花似锦。</div>
+                    </div>
+                `;
+                failedWordsCount.textContent = '0个';
             }
             
-            currentQuestion = null;
+            victoryOverlay.style.display = 'flex';
+            setTimeout(() => { victoryOverlay.scrollTop = 0; }, 100);
             
-            const remainingWords = gameWords.filter(word => !word.used).length;
-            document.getElementById('word-count').textContent = `单词数: ${remainingWords}`;
-            
-            // 正确答案：音效播放后（约150ms）立即释放锁
-            setTimeout(() => {
-                optionClickLock = false;
-                console.log("正确答案锁已释放");
+            const btn = document.getElementById('controlBtn');
+            btn.innerHTML = '<i class="fas fa-play"></i> 重新挑战';
+            btn.style.background = 'linear-gradient(45deg, #36cfc9, #1890ff)';
+        }
+
+        function loadWords(file) {
+            if (!file) {
+                alert('请选择一个文件！');
+                return;
+            }
+            const fileStatus = document.getElementById('fileStatus');
+            fileStatus.textContent = '正在加载文件...';
+            fileStatus.style.color = '#faad14';
+            const fileName = file.name.toLowerCase();
+            if (fileName.endsWith('.txt')) {
+                loadTxtFile(file);
+            } else if (fileName.endsWith('.docx') || fileName.endsWith('.doc')) {
+                loadDocxFile(file);
+            } else {
+                fileStatus.textContent = '不支持的文件格式';
+                fileStatus.style.color = '#ff4d4f';
+                alert('只支持.txt、.docx和.doc格式的文件！');
+                return;
+            }
+        }
+
+        function loadTxtFile(file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const content = e.target.result;
+                    processWordContent(content, file.name);
+                } catch (error) {
+                    document.getElementById('fileStatus').textContent = '加载失败';
+                    document.getElementById('fileStatus').style.color = '#ff4d4f';
+                    alert('加载TXT文件失败，请检查文件格式！');
+                }
+            };
+            reader.onerror = function() {
+                document.getElementById('fileStatus').textContent = '读取失败';
+                document.getElementById('fileStatus').style.color = '#ff4d4f';
+                alert('读取文件失败！');
+            };
+            reader.readAsText(file, 'UTF-8');
+        }
+
+        function loadDocxFile(file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const arrayBuffer = e.target.result;
+                    mammoth.extractRawText({arrayBuffer: arrayBuffer})
+                        .then(function(result) {
+                            const content = result.value;
+                            processWordContent(content, file.name);
+                        })
+                        .catch(function(error) {
+                            document.getElementById('fileStatus').textContent = '解析失败';
+                            document.getElementById('fileStatus').style.color = '#ff4d4f';
+                            alert('解析DOCX/DOC文件失败，请确保文件格式正确！');
+                        });
+                } catch (error) {
+                    document.getElementById('fileStatus').textContent = '加载失败';
+                    document.getElementById('fileStatus').style.color = '#ff4d4f';
+                    alert('加载DOCX/DOC文件失败！');
+                }
+            };
+            reader.onerror = function() {
+                document.getElementById('fileStatus').textContent = '读取失败';
+                document.getElementById('fileStatus').style.color = '#ff4d4f';
+                alert('读取文件失败！');
+            };
+            reader.readAsArrayBuffer(file);
+        }
+
+        function processWordContent(content, fileName) {
+            try {
+                const lines = content.split('\n')
+                    .map(line => line.trim())
+                    .filter(line => line.length > 0);
+                const loadedWords = [];
+                let parseErrors = [];
+                for (let i = 0; i < lines.length; i++) {
+                    const line = lines[i];
+                    let english = '', chinese = '';
+                    let parsed = false;
+                    
+                    if (line.includes(', ')) {
+                        const parts = line.split(', ');
+                        if (parts.length >= 2) {
+                            english = parts[0].trim();
+                            chinese = parts.slice(1).join(', ').trim();
+                            parsed = true;
+                        }
+                    } else if (line.includes(',')) {
+                        const parts = line.split(',');
+                        if (parts.length >= 2) {
+                            english = parts[0].trim();
+                            chinese = parts.slice(1).join(',').trim();
+                            parsed = true;
+                        }
+                    } else if (line.includes('，')) {
+                        const parts = line.split('，');
+                        if (parts.length >= 2) {
+                            english = parts[0].trim();
+                            chinese = parts.slice(1).join('，').trim();
+                            parsed = true;
+                        }
+                    } else if (line.includes('\t')) {
+                        const parts = line.split('\t');
+                        if (parts.length >= 2) {
+                            english = parts[0].trim();
+                            chinese = parts.slice(1).join('\t').trim();
+                            parsed = true;
+                        }
+                    } else if (line.includes(':')) {
+                        const parts = line.split(':');
+                        if (parts.length >= 2) {
+                            english = parts[0].trim();
+                            chinese = parts.slice(1).join(':').trim();
+                            parsed = true;
+                        }
+                    } else if (line.includes('：')) {
+                        const parts = line.split('：');
+                        if (parts.length >= 2) {
+                            english = parts[0].trim();
+                            chinese = parts.slice(1).join('：').trim();
+                            parsed = true;
+                        }
+                    } else if (line.includes(' ')) {
+                        const lastSpaceIndex = line.lastIndexOf(' ');
+                        if (lastSpaceIndex > 0) {
+                            let potentialEnglish = line.substring(0, lastSpaceIndex).trim();
+                            let potentialChinese = line.substring(lastSpaceIndex + 1).trim();
+                            if (potentialEnglish.includes('(') && !potentialEnglish.includes(')')) {
+                                const rightParenIndex = potentialChinese.indexOf(')');
+                                if (rightParenIndex !== -1) {
+                                    english = potentialEnglish + ' ' + potentialChinese.substring(0, rightParenIndex + 1);
+                                    chinese = potentialChinese.substring(rightParenIndex + 1).trim();
+                                    parsed = true;
+                                } else {
+                                    english = potentialEnglish;
+                                    chinese = potentialChinese;
+                                    parsed = true;
+                                }
+                            } else {
+                                english = potentialEnglish;
+                                chinese = potentialChinese;
+                                parsed = true;
+                            }
+                        }
+                    }
+                    
+                    if (parsed && english && chinese) {
+                        english = english.replace(/^[^a-zA-Z\(\)\[\]\s]+|[^a-zA-Z\(\)\[\]\s]+$/g, '');
+                        if (english && chinese) {
+                            loadedWords.push({ 
+                                english: english.trim(), 
+                                chinese: chinese.trim(),
+                                used: false,
+                                wrongCount: 0,
+                                answered: false,
+                                canScore: true
+                            });
+                        } else {
+                            parseErrors.push(`第${i+1}行: 解析后内容为空`);
+                        }
+                    } else {
+                        parseErrors.push(`第${i+1}行: 无法解析格式 - "${line}"`);
+                    }
+                }
                 
-                if (checkGameCompletion()) {
+                if (loadedWords.length === 0) {
+                    const fileStatus = document.getElementById('fileStatus');
+                    fileStatus.textContent = '文件格式错误';
+                    fileStatus.style.color = '#ff4d4f';
+                    alert(`无法解析单词表！\n\n解析失败的行数: ${parseErrors.length}`);
                     return;
                 }
                 
-                createOptions();
-            }, 150);
-        } else {
-            // 错误答案处理
-            btn.classList.add('wrong');
-            playSystemSound('wrong');
-            
-            // 扣分
-            deductScore(5);
-            
-            // 记录扣分单词
-            const correctWord = gameWords.find(word => word.english === correctEnglish);
-            if (correctWord) {
-                // 标记单词为已扣分
-                const wordIndex = gameWords.findIndex(word => word.english === correctEnglish);
-                if (wordIndex !== -1) {
-                    gameWords[wordIndex].deducted = true;
+                originalWords = [...loadedWords];
+                currentWords = [...loadedWords];
+                currentFileName = fileName;
+                const fileStatus = document.getElementById('fileStatus');
+                fileStatus.textContent = `已加载 ${currentWords.length} 个单词 (${fileName})`;
+                fileStatus.style.color = '#52c41a';
+                const fileNameDisplay = document.getElementById('fileNameDisplay');
+                if (fileNameDisplay) {
+                    fileNameDisplay.textContent = `单词表: ${fileName}`;
                 }
-                
-                // 添加到未过关单词列表
-                const failedWord = {
-                    english: correctWord.english,
-                    chinese: correctWord.chinese,
-                    type: 'click-wrong'
-                };
-                
-                // 检查是否已经记录过这个未过关单词
-                const alreadyRecorded = failedWords.some(word => word.english === failedWord.english);
-                if (!alreadyRecorded) {
-                    failedWords.push(failedWord);
+                setupGame();
+                showWordListPreview(loadedWords, fileName);
+            } catch (error) {
+                console.error("处理单词内容失败:", error);
+                const fileStatus = document.getElementById('fileStatus');
+                fileStatus.textContent = '处理失败';
+                fileStatus.style.color = '#ff4d4f';
+                alert('处理单词内容失败，请检查文件格式！');
+            }
+        }
+
+        function showWordListPreview(words, fileName) {
+            console.log("显示单词列表预览，单词数:", words.length);
+            const wordListOverlay = document.getElementById('wordListOverlay');
+            const wordListHeader = document.getElementById('wordListHeader');
+            const wordListStats = document.getElementById('wordListStats');
+            const wordListContent = document.getElementById('wordListContent');
+            playSystemSound('show_list');
+            wordListHeader.innerHTML = `<i class="fas fa-check-circle" style="color: #52c41a; margin-right: 6px;"></i> 复习后点击关闭`;
+            wordListStats.textContent = `单词表: ${fileName} | 共 ${words.length} 个单词`;
+            let tableHTML = `
+                <table class="word-list-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 10%;">序号</th>
+                            <th style="width: 45%;">英文</th>
+                            <th style="width: 45%;">中文</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+            words.forEach((word, index) => {
+                tableHTML += `
+                    <tr>
+                        <td style="text-align: center; font-weight: bold; color: #666;">${index + 1}</td>
+                        <td class="word-english">${word.english}</td>
+                        <td class="word-chinese">${word.chinese}</td>
+                    </tr>
+                `;
+            });
+            tableHTML += `</tbody></table>`;
+            wordListContent.innerHTML = tableHTML;
+            wordListOverlay.style.display = 'flex';
+            setTimeout(() => { wordListContent.scrollTop = 0; }, 100);
+        }
+
+        function closeWordList() {
+            console.log("关闭单词列表预览");
+            playSystemSound('click');
+            document.getElementById('wordListOverlay').style.display = 'none';
+            alert(`单词表加载成功！\n\n文件名: ${currentFileName}\n单词数量: ${currentWords.length}个\n\n现在可以点击"挑战开始"按钮开始游戏！`);
+        }
+
+        function resetGameState() {
+            document.querySelectorAll('.option-btn').forEach(btn => btn.remove());
+            document.getElementById('prompt').textContent = 'Ready！Go！';
+            const fileNameDisplay = document.getElementById('fileNameDisplay');
+            if (fileNameDisplay) {
+                if (currentFileName) {
+                    fileNameDisplay.textContent = `单词表: ${currentFileName}`;
+                } else {
+                    fileNameDisplay.textContent = '未加载单词表';
                 }
             }
-            
-            // 错误答案在音效播放后（约150ms）立即释放锁
-            setTimeout(() => {
-                optionClickLock = false;
-                console.log("错误答案锁已释放（立即释放）");
-            }, 150);
-            
-            // 保持错误的视觉状态，但允许按钮在动画结束后恢复
-            setTimeout(() => {
-                btn.classList.remove('wrong');
-                btn.disabled = false;
-            }, 800);
+            if (originalWords.length > 0) {
+                const allWords = originalWords.map(word => ({
+                    ...word, 
+                    used: false,
+                    wrongCount: 0,
+                    answered: false,
+                    canScore: true
+                }));
+                currentWords = [...allWords];
+                gameWords = [...allWords];
+                currentQuestion = null;
+                currentPrompt = '';
+                document.getElementById('word-count').textContent = `单词数: ${gameWords.filter(word => !word.used).length}`;
+                const container = document.getElementById('options');
+                container.innerHTML = '';
+                for (let i = 0; i < 4; i++) {
+                    const btn = document.createElement('button');
+                    btn.className = 'option-btn';
+                    btn.textContent = '---';
+                    btn.disabled = true;
+                    container.appendChild(btn);
+                }
+            } else {
+                document.getElementById('word-count').textContent = `单词数: 0`;
+            }
+            score = 0;
+            updateScoreDisplay();
+            currentTime = totalTime;
+            updateTimerDisplay();
+            const timerElement = document.getElementById('timer');
+            if (timerElement) {
+                timerElement.style.color = '#1890ff';
+            }
+            gameStartTime = 0;
+            gameElapsedTime = 0;
+            failedWords = [];
+            isPlaying = false;
+            stopTimer();
+            document.getElementById('controlBtn').innerHTML = '<i class="fas fa-play"></i> 挑战开始';
+            document.getElementById('controlBtn').style.background = 'linear-gradient(45deg, #ff4d4f, #ff7875)';
+            victorySoundPlayed = false;
+            cheerSoundPlayed = false;
+            optionClickLock = false;
+            console.log("游戏状态已重置");
         }
-    }
 
-    function toggleGame() {
-        const btn = document.getElementById('controlBtn');
-        if (!isPlaying) {
-            if (currentWords.length === 0) {
-                alert('请先上传单词表！');
+        function setupGame() {
+            resetGameState();
+            if (originalWords.length > 0) {
+                document.getElementById('prompt').textContent = 'Ready！Go！';
+            }
+            console.log("游戏初始化完成，单词数:", currentWords.length);
+        }
+
+        function restartGame() {
+            closeVictoryScreen();
+            resetGameState();
+            alert('游戏已重新开始！\n单词和得分已重置，计时器重置为10分钟。');
+        }
+
+        function createOptions() {
+            const container = document.getElementById('options');
+            container.innerHTML = '';
+            const availableWords = gameWords.filter(word => !word.used);
+            if (availableWords.length === 0) {
+                for (let i = 0; i < 4; i++) {
+                    const btn = document.createElement('button');
+                    btn.className = 'option-btn';
+                    btn.textContent = '---';
+                    btn.disabled = true;
+                    container.appendChild(btn);
+                }
+                return;
+            }
+            let correctWord, wrongOptions;
+            if (currentQuestion) {
+                correctWord = currentQuestion.correct;
+                wrongOptions = currentQuestion.wrongOptions;
+            } else {
+                const correctIndex = Math.floor(Math.random() * availableWords.length);
+                correctWord = availableWords[correctIndex];
+                wrongOptions = [];
+                const otherWords = availableWords.filter((_, index) => index !== correctIndex);
+                const shuffledOthers = [...otherWords].sort(() => Math.random() - 0.5);
+                for (let i = 0; i < Math.min(3, shuffledOthers.length); i++) {
+                    wrongOptions.push(shuffledOthers[i]);
+                }
+                while (wrongOptions.length < 3) {
+                    const usedWords = gameWords.filter(word => word.used);
+                    if (usedWords.length > 0) {
+                        const randomUsedWord = usedWords[Math.floor(Math.random() * usedWords.length)];
+                        if (!wrongOptions.includes(randomUsedWord) && randomUsedWord !== correctWord) {
+                            wrongOptions.push(randomUsedWord);
+                        }
+                    } else {
+                        if (wrongOptions.length > 0) {
+                            wrongOptions.push(wrongOptions[wrongOptions.length - 1]);
+                        }
+                    }
+                }
+                currentQuestion = {
+                    correct: correctWord,
+                    wrongOptions: wrongOptions
+                };
+                currentPrompt = correctWord.english;
+                document.getElementById('prompt').textContent = correctWord.english;
+            }
+            const allOptions = [correctWord, ...wrongOptions];
+            const shuffledOptions = [...allOptions].sort(() => Math.random() - 0.5);
+            const labels = ['A', 'B', 'C', 'D'];
+            for (let i = 0; i < 4; i++) {
+                const option = shuffledOptions[i] || correctWord;
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.dataset.chinese = option.chinese;
+                btn.dataset.english = option.english;
+                btn.textContent = option.chinese;
+                const label = document.createElement('div');
+                label.className = 'option-label';
+                label.textContent = labels[i];
+                btn.appendChild(label);
+                btn.onclick = () => {
+                    playSystemSound('click');
+                    handleOptionClick(option.chinese, option.english, correctWord.english, btn);
+                };
+                container.appendChild(btn);
+            }
+        }
+
+        function handleOptionClick(selectedChinese, selectedEnglish, correctEnglish, btn) {
+            if (!isPlaying) return;
+            if (optionClickLock) {
+                console.log("点击被锁定，忽略");
+                return;
+            }
+            btn.disabled = true;
+            optionClickLock = true;
+            console.log(`点击选项: ${selectedChinese} (英文: ${selectedEnglish}, 正确答案: ${correctEnglish})`);
+            const correctWordIndex = gameWords.findIndex(word => word.english === correctEnglish);
+            if (correctWordIndex === -1) {
+                console.log("未找到正确单词，释放锁并返回");
+                optionClickLock = false;
+                return;
+            }
+            const currentWord = gameWords[correctWordIndex];
+            if (selectedEnglish === correctEnglish && selectedEnglish === currentPrompt) {
+                btn.classList.add('correct');
+                playSystemSound('correct');
+                let addedScore = 0;
+                if (!currentWord.answered) {
+                    if (currentWord.wrongCount === 0) {
+                        addedScore = 10;
+                    } else if (currentWord.wrongCount === 1) {
+                        addedScore = 5;
+                    } else {
+                        addedScore = 0;
+                    }
+                    if (addedScore > 0) {
+                        addScore(addedScore);
+                    }
+                    currentWord.answered = true;
+                } else {
+                    addedScore = 0;
+                }
+                gameWords[correctWordIndex].used = true;
+                currentQuestion = null;
+                const remainingWords = gameWords.filter(word => !word.used).length;
+                document.getElementById('word-count').textContent = `单词数: ${remainingWords}`;
+                setTimeout(() => {
+                    optionClickLock = false;
+                    console.log("正确答案锁已释放");
+                    if (checkGameCompletion()) {
+                        return;
+                    }
+                    createOptions();
+                }, 150);
+            } else {
+                btn.classList.add('wrong');
+                playSystemSound('wrong');
+                currentWord.wrongCount++;
+                const deducted = deductScore(5);
+                if (currentWord.wrongCount === 1) {
+                    const failedWord = {
+                        english: currentWord.english,
+                        chinese: currentWord.chinese,
+                        type: 'click-wrong'
+                    };
+                    const alreadyRecorded = failedWords.some(word => word.english === failedWord.english);
+                    if (!alreadyRecorded) {
+                        failedWords.push(failedWord);
+                    }
+                }
+                setTimeout(() => {
+                    optionClickLock = false;
+                    console.log("错误答案锁已释放（立即释放）");
+                }, 150);
+                setTimeout(() => {
+                    btn.classList.remove('wrong');
+                    btn.disabled = false;
+                }, 800);
+            }
+        }
+
+        function toggleGame() {
+            const btn = document.getElementById('controlBtn');
+            if (!isPlaying) {
+                if (!username || username.trim() === '') {
+                    alert('请先设置姓名！');
+                    return;
+                }
+                if (currentWords.length === 0) {
+                    alert('请先上传单词表！');
+                    return;
+                }
+                const availableWords = gameWords.filter(word => !word.used).length;
+                if (availableWords === 0) {
+                    console.log("检测到游戏结束状态，正在重置游戏状态...");
+                    resetGameState();
+                }
+                btn.innerHTML = '<i class="fas fa-pause"></i> 挑战中...';
+                btn.style.background = 'linear-gradient(45deg, #52c41a, #73d13d)';
+                victorySoundPlayed = false;
+                cheerSoundPlayed = false;
+                ensureAudioContext();
+                startTimer();
+                isPlaying = true;
+                createOptions();
+                if (currentPrompt) {
+                    document.getElementById('prompt').textContent = currentPrompt;
+                }
+                console.log("游戏开始");
+            } else {
+                if (!isPlaying) {
+                    btn.innerHTML = '<i class="fas fa-play"></i> 重新挑战';
+                    btn.style.background = 'linear-gradient(45deg, #36cfc9, #1890ff)';
+                }
+            }
+        }
+
+        function closeVictoryScreen() {
+            document.getElementById('victoryOverlay').style.display = 'none';
+        }
+        
+        async function captureScreenshot() {
+            playSystemSound('screenshot');
+            
+            const victoryContainer = document.querySelector('.victory-container');
+            if (!victoryContainer) {
+                alert('截图失败：未找到游戏结束界面');
                 return;
             }
             
-            const availableWords = gameWords.filter(word => !word.used).length;
+            const loadingToast = createToast('正在生成截图...', 'info');
+            document.body.appendChild(loadingToast);
             
-            if (availableWords === 0) {
-                console.log("检测到游戏结束状态，正在重置游戏状态...");
-                resetGameState();
-            }
-            
-            btn.innerHTML = '<i class="fas fa-pause"></i> 挑战中...';
-            btn.style.background = 'linear-gradient(45deg, #52c41a, #73d13d)';
-            victorySoundPlayed = false;
-            cheerSoundPlayed = false;
-            
-            ensureAudioContext();
-            
-            startTimer();
-            
-            isPlaying = true;
-            createOptions();
-            
-            if (currentPrompt) {
-                document.getElementById('prompt').textContent = currentPrompt;
-            }
-            
-            console.log("游戏开始");
-        } else {
-            // 移除暂停功能，游戏开始后不允许暂停
-            if (!isPlaying) {
-                btn.innerHTML = '<i class="fas fa-play"></i> 重新挑战';
-                btn.style.background = 'linear-gradient(45deg, #36cfc9, #1890ff)';
-            }
-        }
-    }
-
-    function closeVictoryScreen() {
-        document.getElementById('victoryOverlay').style.display = 'none';
-    }
-    
-    /* ===== 窗口控制功能 ===== */
-    
-    function minimizeWindow() {
-        const container = document.querySelector('.container');
-        const gameTitle = document.querySelector('.game-title');
-        const gameControl = document.getElementById('gameControl');
-        
-        container.style.display = 'none';
-        gameTitle.style.display = 'none';
-        gameControl.style.display = 'none';
-        
-        const minimizedMessage = document.createElement('div');
-        minimizedMessage.id = 'minimizedMessage';
-        minimizedMessage.style.cssText = `
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: linear-gradient(45deg, #1890ff, #36cfc9);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 10px;
-            font-size: 20px;
-            font-weight: bold;
-            text-align: center;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-            z-index: 999;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        `;
-        minimizedMessage.innerHTML = `
-            <i class="fas fa-window-restore"></i>
-            <span>百词斩游戏已最小化 - 点击恢复</span>
-        `;
-        minimizedMessage.onclick = restoreWindow;
-        
-        document.body.appendChild(minimizedMessage);
-        
-        playSystemSound('click');
-    }
-    
-    function restoreWindow() {
-        const container = document.querySelector('.container');
-        const gameTitle = document.querySelector('.game-title');
-        const gameControl = document.getElementById('gameControl');
-        const minimizedMessage = document.getElementById('minimizedMessage');
-        
-        container.style.display = 'flex';
-        gameTitle.style.display = 'block';
-        gameControl.style.display = 'block';
-        
-        if (minimizedMessage) {
-            minimizedMessage.remove();
-        }
-        
-        playSystemSound('click');
-    }
-    
-    function toggleFullscreen() {
-        if (!document.fullscreenElement) {
-            if (document.documentElement.requestFullscreen) {
-                document.documentElement.requestFullscreen();
-            } else if (document.documentElement.webkitRequestFullscreen) {
-                document.documentElement.webkitRequestFullscreen();
-            } else if (document.documentElement.msRequestFullscreen) {
-                document.documentElement.msRequestFullscreen();
-            }
-            
-            const maximizeBtn = document.querySelector('.window-btn.maximize i');
-            maximizeBtn.className = 'fas fa-compress';
-            
-            playSystemSound('correct');
-        } else {
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            } else if (document.webkitExitFullscreen) {
-                document.webkitExitFullscreen();
-            } else if (document.msExitFullscreen) {
-                document.msExitFullscreen();
-            }
-            
-            const maximizeBtn = document.querySelector('.window-btn.maximize i');
-            maximizeBtn.className = 'fas fa-window-maximize';
-            
-            playSystemSound('click');
-        }
-    }
-    
-    document.addEventListener('fullscreenchange', handleFullscreenChange);
-    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
-    document.addEventListener('msfullscreenchange', handleFullscreenChange);
-    
-    function handleFullscreenChange() {
-        const maximizeBtn = document.querySelector('.window-btn.maximize i');
-        if (!document.fullscreenElement && 
-            !document.webkitFullscreenElement && 
-            !document.msFullscreenElement) {
-            maximizeBtn.className = 'fas fa-window-maximize';
-        }
-    }
-    
-    function showCloseConfirm() {
-        playSystemSound('wrong');
-        document.getElementById('closeConfirmOverlay').style.display = 'flex';
-    }
-    
-    function cancelClose() {
-        playSystemSound('click');
-        document.getElementById('closeConfirmOverlay').style.display = 'none';
-    }
-    
-    function confirmClose() {
-        playSystemSound('close');
-        
-        const closingAnimation = document.getElementById('closingAnimation');
-        const closingMessage = document.getElementById('closingMessage');
-        
-        closingAnimation.style.display = 'flex';
-        document.getElementById('closeConfirmOverlay').style.display = 'none';
-        
-        setTimeout(() => {
-            closingMessage.textContent = "正在保存数据...";
-            
-            setTimeout(() => {
-                closingMessage.textContent = "正在释放资源...";
+            try {
+                const originalWidth = victoryContainer.offsetWidth;
                 
-                setTimeout(() => {
-                    closingMessage.textContent = "百词斩游戏已关闭";
-                    
-                    const isOpenedByJS = window.opener || window.history.length <= 1;
+                const cloneWrapper = document.createElement('div');
+                cloneWrapper.style.position = 'absolute';
+                cloneWrapper.style.left = '-9999px';
+                cloneWrapper.style.top = '-9999px';
+                cloneWrapper.style.width = originalWidth + 'px';
+                cloneWrapper.style.zIndex = '-1000';
+                
+                const clone = victoryContainer.cloneNode(true);
+                clone.style.width = originalWidth + 'px';
+                clone.style.height = 'auto';
+                clone.style.maxHeight = 'none';
+                clone.style.overflow = 'visible';
+                clone.style.animation = 'none';
+                
+                cloneWrapper.appendChild(clone);
+                document.body.appendChild(cloneWrapper);
+                
+                await new Promise(resolve => setTimeout(resolve, 100));
+                
+                const canvas = await html2canvas(clone, {
+                    scale: 2,
+                    backgroundColor: null,
+                    allowTaint: true,
+                    useCORS: true,
+                    logging: false,
+                    imageTimeout: 30000,
+                });
+                
+                document.body.removeChild(cloneWrapper);
+                
+                if (document.body.contains(loadingToast)) {
+                    document.body.removeChild(loadingToast);
+                }
+                
+                const link = document.createElement('a');
+                
+                // 修改截图文件名格式：姓名_百词斩成绩单_对应的单词表名称_日期
+                // 处理文件名：移除可能不合法的字符
+                const safeUsername = (username || '玩家').replace(/[\\/:*?"<>|]/g, '_');
+                const safeFileName = (currentFileName ? currentFileName.replace(/\.[^/.]+$/, '') : '未命名').replace(/[\\/:*?"<>|]/g, '_');
+                
+                // 格式化日期：YYYY-MM-DD
+                const now = new Date();
+                const year = now.getFullYear();
+                const month = String(now.getMonth() + 1).padStart(2, '0');
+                const day = String(now.getDate()).padStart(2, '0');
+                const dateStr = `${year}-${month}-${day}`;
+                
+                const fileName = `${safeUsername}_百词斩成绩单_${safeFileName}_${dateStr}.png`;
+                
+                canvas.toBlob((blob) => {
+                    const url = URL.createObjectURL(blob);
+                    link.href = url;
+                    link.download = fileName;
+                    link.click();
                     
                     setTimeout(() => {
-                        try {
-                            if (isOpenedByJS || window.open("", "_self")) {
-                                window.close();
-                            } else {
+                        URL.revokeObjectURL(url);
+                    }, 100);
+                    
+                    const successToast = createToast('截图保存成功！', 'success');
+                    document.body.appendChild(successToast);
+                    
+                    setTimeout(() => {
+                        if (document.body.contains(successToast)) {
+                            document.body.removeChild(successToast);
+                        }
+                    }, 2000);
+                    
+                }, 'image/png', 1.0);
+                
+            } catch (error) {
+                if (document.body.contains(loadingToast)) {
+                    document.body.removeChild(loadingToast);
+                }
+                console.error('截图失败:', error);
+                
+                const errorToast = createToast('截图失败，请重试', 'error');
+                document.body.appendChild(errorToast);
+                
+                setTimeout(() => {
+                    if (document.body.contains(errorToast)) {
+                        document.body.removeChild(errorToast);
+                    }
+                }, 3000);
+                
+                alert('截图失败，错误：' + error.message);
+            }
+        }
+        
+        function createToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            const colors = {
+                info: 'rgba(0, 0, 0, 0.8)',
+                success: 'rgba(76, 175, 80, 0.95)',
+                error: 'rgba(244, 67, 54, 0.95)'
+            };
+            
+            toast.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: ${colors[type]};
+                color: white;
+                padding: 16px 28px;
+                border-radius: 40px;
+                font-size: 18px;
+                z-index: 10000;
+                box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+                backdrop-filter: blur(8px);
+                pointer-events: none;
+                font-family: 'Microsoft YaHei', sans-serif;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                border: 1px solid rgba(255,255,255,0.2);
+                font-weight: 500;
+            `;
+            
+            const icon = document.createElement('i');
+            icon.className = type === 'info' ? 'fas fa-spinner fa-pulse fa-lg' : 
+                            type === 'success' ? 'fas fa-check-circle fa-lg' : 'fas fa-exclamation-circle fa-lg';
+            icon.style.fontSize = '20px';
+            
+            toast.appendChild(icon);
+            toast.appendChild(document.createTextNode(message));
+            
+            return toast;
+        }
+        
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                if (document.documentElement.requestFullscreen) {
+                    document.documentElement.requestFullscreen();
+                } else if (document.documentElement.webkitRequestFullscreen) {
+                    document.documentElement.webkitRequestFullscreen();
+                } else if (document.documentElement.msRequestFullscreen) {
+                    document.documentElement.msRequestFullscreen();
+                }
+                const maximizeBtn = document.querySelector('.window-btn.maximize i');
+                if (maximizeBtn) maximizeBtn.className = 'fas fa-compress';
+                playSystemSound('correct');
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+                const maximizeBtn = document.querySelector('.window-btn.maximize i');
+                if (maximizeBtn) maximizeBtn.className = 'fas fa-window-maximize';
+                playSystemSound('click');
+            }
+        }
+        
+        document.addEventListener('fullscreenchange', handleFullscreenChange);
+        document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+        document.addEventListener('msfullscreenchange', handleFullscreenChange);
+        
+        function handleFullscreenChange() {
+            const maximizeBtn = document.querySelector('.window-btn.maximize i');
+            if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
+                if (maximizeBtn) maximizeBtn.className = 'fas fa-window-maximize';
+            }
+        }
+        
+        function showCloseConfirm() {
+            playSystemSound('wrong');
+            document.getElementById('closeConfirmOverlay').style.display = 'flex';
+        }
+        
+        function cancelClose() {
+            playSystemSound('click');
+            document.getElementById('closeConfirmOverlay').style.display = 'none';
+        }
+        
+        function confirmClose() {
+            playSystemSound('close');
+            const closingAnimation = document.getElementById('closingAnimation');
+            const closingMessage = document.getElementById('closingMessage');
+            closingAnimation.style.display = 'flex';
+            document.getElementById('closeConfirmOverlay').style.display = 'none';
+            setTimeout(() => {
+                closingMessage.textContent = "正在保存数据...";
+                setTimeout(() => {
+                    closingMessage.textContent = "正在释放资源...";
+                    setTimeout(() => {
+                        closingMessage.textContent = "百词斩游戏已关闭";
+                        const isOpenedByJS = window.opener || window.history.length <= 1;
+                        setTimeout(() => {
+                            try {
+                                if (isOpenedByJS || window.open("", "_self")) {
+                                    window.close();
+                                } else {
+                                    closingMessage.textContent = "游戏已关闭，请手动关闭此标签页";
+                                    setTimeout(() => {
+                                        if (confirm('游戏已关闭！\n\n您想返回主页吗？')) {
+                                            window.location.href = 'about:blank';
+                                        }
+                                    }, 2000);
+                                }
+                            } catch (error) {
+                                console.log("无法关闭窗口:", error);
                                 closingMessage.textContent = "游戏已关闭，请手动关闭此标签页";
-                                
                                 setTimeout(() => {
-                                    if (confirm('游戏已关闭！\n\n您想返回主页吗？')) {
+                                    if (confirm('游戏已关闭！\n\n由于浏览器安全限制，无法自动关闭窗口。\n\n您想返回空白页面吗？')) {
                                         window.location.href = 'about:blank';
                                     }
                                 }, 2000);
                             }
-                        } catch (error) {
-                            console.log("无法关闭窗口:", error);
-                            closingMessage.textContent = "游戏已关闭，请手动关闭此标签页";
-                            
-                            setTimeout(() => {
-                                if (confirm('游戏已关闭！\n\n由于浏览器安全限制，无法自动关闭窗口。\n\n您想返回空白页面吗？')) {
-                                    window.location.href = 'about:blank';
-                                }
-                            }, 2000);
-                        }
+                        }, 1000);
                     }, 1000);
                 }, 1000);
-            }, 1000);
-        }, 500);
-    }
-</script>
+            }, 500);
+        }
+    </script>
 </body>
 </html>
