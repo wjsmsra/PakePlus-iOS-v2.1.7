@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>英语单词大比拼 - 单人百词斩模式</title>
+    <title>英语单词大比拼 - 高清截图版</title>
     <style>
+        /* ========== 保留原有所有样式（仅修改未过关卡片高度及阴影） ========== */
         * {
             margin: 0;
             padding: 0;
@@ -96,6 +97,8 @@
             align-items: center;
             justify-content: center;
             position: relative;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: rgba(0,0,0,0.1);
         }
         
         .control-btn:hover {
@@ -118,6 +121,7 @@
             min-width: 90px;
             max-width: 120px;
             padding: 8px 6px;
+            touch-action: manipulation;
         }
         
         #controlBtn {
@@ -133,6 +137,7 @@
             box-shadow: 0 3px 10px rgba(255, 77, 79, 0.3);
             min-width: 160px;
             flex: 2;
+            touch-action: manipulation;
         }
         
         #controlBtn:hover {
@@ -260,6 +265,7 @@
             min-height: 75px;
             width: 100%;
             flex-shrink: 0;
+            touch-action: manipulation;
         }
         
         .option-btn:hover {
@@ -374,7 +380,7 @@
         
         .word-list-container {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 240, 240, 0.95) 100%);
-            padding: 18px;
+            padding: 18px 18px 25px 18px;
             border-radius: 18px;
             text-align: center;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
@@ -387,6 +393,7 @@
             display: flex;
             flex-direction: column;
             min-height: 580px;
+            overflow-y: auto;
         }
         
         .word-list-title {
@@ -398,6 +405,7 @@
             text-align: center;
             border-bottom: 3px solid #1890ff;
             padding-bottom: 8px;
+            flex-shrink: 0;
         }
         
         .word-list-header {
@@ -411,6 +419,7 @@
             border: 2px solid rgba(24, 144, 255, 0.3);
             text-align: center;
             line-height: 1.4;
+            flex-shrink: 0;
         }
         
         .word-list-close-btn {
@@ -425,10 +434,14 @@
             transition: all 0.3s;
             box-shadow: 0 3px 10px rgba(255, 77, 79, 0.25);
             border: 2px solid rgba(255, 255, 255, 0.5);
-            margin: 15px auto;
+            margin: 15px auto 0;
             display: block;
             width: 90%;
             max-width: 300px;
+            touch-action: manipulation;
+            flex-shrink: 0;
+            position: relative;
+            bottom: 0;
         }
         
         .word-list-close-btn:hover {
@@ -443,8 +456,8 @@
             padding: 15px;
             margin: 10px 0;
             flex: 1;
-            min-height: 400px;
-            max-height: 500px;
+            max-height: 400px;
+            min-height: 300px;
             overflow-y: auto;
             border: 3px solid #40a9ff;
             display: flex;
@@ -506,6 +519,7 @@
             border-radius: 6px;
             border: 2px solid rgba(82, 196, 26, 0.3);
             text-align: center;
+            flex-shrink: 0;
         }
         
         #victoryOverlay {
@@ -531,17 +545,17 @@
         }
         
         .victory-container {
-            background: linear-gradient(135deg, #add8e6 0%, #87cefa 100%);
+            background: #F0F9F1;
             padding: 18px;
             border-radius: 18px;
             text-align: center;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
             max-width: 95%;
             width: 95%;
-            max-height: 90vh;
+            max-height: none;
             animation: zoomIn 0.8s ease-out;
             margin: auto;
-            border: 4px solid #FFD700;
+            border: 4px solid #A5D6A7;
             display: flex;
             flex-direction: column;
             min-height: auto;
@@ -566,12 +580,13 @@
         
         .victory-username {
             font-size: 36px;
-            color: #722ed1;
+            color: #1E4A6F;
             font-weight: bold;
             margin-bottom: 2px;
             line-height: 1.2;
             text-align: center;
             flex-shrink: 0;
+            text-shadow: 0.06em 0.06em 0.15em rgba(0, 0, 0, 0.5);
         }
         
         .victory-message {
@@ -580,6 +595,7 @@
             font-weight: bold;
             line-height: 1.3;
             flex-shrink: 0;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3), 0 0 8px rgba(255, 255, 255, 0.4);
         }
         
         .file-name-display {
@@ -612,7 +628,7 @@
             margin: 2px 0;
             font-weight: bold;
             line-height: 1.3;
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.85);
             padding: 10px;
             border-radius: 8px;
             display: flex;
@@ -623,6 +639,8 @@
             max-height: 130px;
             overflow: hidden;
             flex-shrink: 0;
+            border: 1px solid rgba(24, 144, 255, 0.4);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
         
         .score-line {
@@ -642,7 +660,7 @@
         
         .accuracy-rate {
             font-size: 20px;
-            color: #1890ff;
+            color: #FF8C00;
             font-weight: bold;
         }
         
@@ -652,7 +670,7 @@
             font-weight: bold;
         }
         
-        /* ========== 关键修改：未过关单词容器固定尺寸 ========== */
+        /* ========= 未过关卡片：固定高度 + 滚动 ========= */
         .failed-words-container {
             background: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
@@ -661,17 +679,18 @@
             border: 3px solid #ff4d4f;
             display: flex;
             flex-direction: column;
-            
-            /* 固定尺寸：与满分时三行励志语所占高度一致，确保换行时尺寸不变 */
-            height: 230px;            /* 电脑端基准高度 */
-            max-height: 230px;
-            min-height: 230px;
             width: 100%;
             flex-shrink: 0;
-            overflow: hidden;
+            overflow-y: auto;
+            height: 135px;
         }
         
-        /* 内部标题区高度固定 */
+        @media (min-width: 768px) {
+            .failed-words-container {
+                height: 185px;
+            }
+        }
+        
         .failed-words-title {
             font-size: 20px;
             color: #ff4d4f;
@@ -685,18 +704,16 @@
             min-height: 32px;
         }
         
-        /* 内部滚动区域占满剩余高度，并允许滚动 */
         .failed-words-content {
-            flex: 1 1 auto;
-            overflow-y: auto;
+            flex: 1;
+            overflow: visible;
             padding: 3px;
             min-height: 0;
         }
         
-        /* ===== 满分励志语样式 ===== */
         .full-score-message {
             font-weight: bold;
-            line-height: 1.8;
+            line-height: 1.6;
             color: #333;
             text-align: center;
             display: flex;
@@ -704,52 +721,34 @@
             align-items: center;
             justify-content: center;
             height: 100%;
-            padding: 6px 0;
-            white-space: nowrap;
+            width: 100%;
+            padding: 4px 0;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3), 0 0 8px rgba(255, 255, 255, 0.4);
         }
         
-        /* 电脑端字体大小 */
+        .failed-words-content.centered-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            min-height: 0;
+            width: 100%;
+        }
+        
         @media (min-width: 1024px) {
             .full-score-message {
                 font-size: 28px;
             }
         }
         
-        /* 手机端字体大小 - 使用vw单位确保完整显示 */
         @media (max-width: 768px) {
             .full-score-message {
-                font-size: 4.8vw;
-                line-height: 2.0;
-                max-width: 100%;
-                overflow: visible;
-                padding-left: 8px;
-                padding-right: 8px;
-                width: 100%;
-                box-sizing: border-box;
+                font-size: 16px;
+                line-height: 1.5;
+                padding: 0;
             }
-            
-            .full-score-message div {
-                max-width: 100%;
-                overflow: visible;
-                text-overflow: clip;
-                white-space: nowrap;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .full-score-message {
-                font-size: 4.5vw;
-                line-height: 2.0;
-                padding-left: 6px;
-                padding-right: 6px;
-            }
-        }
-        
-        @media (max-width: 360px) {
-            .full-score-message {
-                font-size: 4.2vw;
-                padding-left: 4px;
-                padding-right: 4px;
+            .failed-words-container {
+                height: 135px;
             }
         }
         
@@ -772,6 +771,8 @@
             justify-content: space-between;
             align-items: center;
             transition: all 0.2s;
+            flex-wrap: wrap;
+            word-break: break-word;
         }
         
         .failed-word-item:hover {
@@ -842,8 +843,9 @@
         .victory-buttons {
             margin-top: 10px;
             display: flex;
-            flex-direction: column;
-            gap: 6px;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 8px;
             flex-shrink: 0;
             width: 100%;
             padding-bottom: 5px;
@@ -859,7 +861,9 @@
             transition: all 0.3s;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
             border: 2px solid rgba(255, 255, 255, 0.5);
-            width: 100%;
+            flex: 1 1 auto;
+            min-width: 120px;
+            touch-action: manipulation;
         }
         
         .victory-btn:hover {
@@ -867,22 +871,24 @@
             box-shadow: 0 5px 14px rgba(0, 0, 0, 0.3);
         }
         
-        .victory-btn.screenshot {
+        .victory-btn.screenshot-long {
             background: #8a4fff !important;
             color: white;
             border: 2px solid rgba(255, 255, 255, 0.5);
         }
         
-        .victory-btn.screenshot:hover {
-            background: #722ed1 !important;
+        .victory-btn.screenshot-short {
+            background: #ff8c4f !important;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.5);
         }
         
-        .victory-btn:not(.screenshot):not(.restart) {
+        .victory-btn:not(.screenshot-long):not(.screenshot-short):not(.restart) {
             background: #1890ff !important;
             color: white;
         }
         
-        .victory-btn:not(.screenshot):not(.restart):hover {
+        .victory-btn:not(.screenshot-long):not(.screenshot-short):not(.restart):hover {
             background: #36cfc9 !important;
         }
         
@@ -923,6 +929,7 @@
             border: 1px solid #d0d0d0;
             transition: all 0.2s;
             user-select: none;
+            touch-action: manipulation;
         }
         
         .window-btn:hover {
@@ -1008,6 +1015,7 @@
             transition: all 0.3s;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
             border: 2px solid rgba(255, 255, 255, 0.5);
+            touch-action: manipulation;
         }
         
         .close-confirm-btn.confirm {
@@ -1030,6 +1038,104 @@
             background: linear-gradient(45deg, #1890ff, #36cfc9);
             transform: translateY(-2px);
             box-shadow: 0 5px 14px rgba(24, 144, 255, 0.25);
+        }
+        
+        /* 重新开始确认弹窗（自定义） */
+        .restart-confirm-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 3100;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .restart-confirm-container {
+            background: white;
+            padding: 28px 24px;
+            border-radius: 28px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            max-width: 380px;
+            width: 85%;
+            animation: zoomIn 0.4s ease-out;
+            border: 3px solid #FF6B6B;
+        }
+        
+        .restart-confirm-message {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 30px;
+            line-height: 1.5;
+            font-weight: 600;
+        }
+        
+        .restart-confirm-message p {
+            margin: 10px 0;
+        }
+        
+        .restart-confirm-buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 8px;
+        }
+        
+        /* 按钮统一基础样式 - 与重新开始按钮风格一致 */
+        .restart-confirm-btn {
+            padding: 12px 24px;
+            font-size: 20px;
+            font-weight: bold;
+            border: none;
+            border-radius: 22px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-width: 120px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+            touch-action: manipulation;
+            color: white;
+        }
+        
+        /* 确定按钮：红底白字（与重新开始按钮相同） */
+        .restart-confirm-btn.confirm-restart {
+            background: #ff4d4f;
+        }
+        .restart-confirm-btn.confirm-restart:hover {
+            background: #ff7875;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(255,77,79,0.3);
+        }
+        
+        /* 取消按钮：蓝底白字 */
+        .restart-confirm-btn.cancel-restart {
+            background: #1890ff;
+        }
+        .restart-confirm-btn.cancel-restart:hover {
+            background: #36cfc9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(24,144,255,0.3);
+        }
+        
+        .restart-confirm-btn:active {
+            transform: translateY(1px);
+        }
+        
+        @media (max-width: 480px) {
+            .restart-confirm-btn {
+                padding: 10px 20px;
+                font-size: 18px;
+                min-width: 100px;
+            }
+            .restart-confirm-message {
+                font-size: 18px;
+            }
         }
         
         .closing-animation {
@@ -1070,33 +1176,66 @@
         /* 手机端优化 */
         @media (max-width: 768px) {
             .failed-words-container {
-                height: 190px;
-                max-height: 190px;
-                min-height: 190px;
+                height: 135px;
             }
             .failed-words-title {
                 height: 28px;
                 min-height: 28px;
                 font-size: 18px;
             }
-            
             #victoryOverlay {
                 align-items: center;
                 padding: 10px 0;
             }
-            
             .victory-container {
-                max-height: 95vh;
+                max-height: none;
                 margin: 0 auto;
                 width: 95%;
+                padding: 8px;
             }
-        }
-        
-        @media (max-width: 480px) {
-            .failed-words-container {
-                height: 170px;
-                max-height: 170px;
-                min-height: 170px;
+            .victory-username {
+                font-size: 28px;
+                margin-bottom: 0;
+                line-height: 1.1;
+            }
+            .victory-message {
+                margin: 0 0 2px 0;
+            }
+            .file-name-display {
+                margin-bottom: 0;
+                padding: 5px 6px;
+            }
+            .victory-score {
+                margin: 2px 0 4px 0;
+                padding: 6px;
+            }
+            .word-list-container {
+                padding: 10px 10px 20px 10px;
+                overflow-y: auto;
+            }
+            .word-list-close-btn {
+                margin: 10px auto 0 auto;
+                margin-top: auto;
+            }
+            .word-list-content {
+                max-height: 320px;
+                min-height: 280px;
+            }
+            .victory-buttons {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 6px;
+            }
+            .victory-btn {
+                min-width: calc(50% - 3px);
+                flex: 1 1 auto;
+                padding: 10px 4px;
+                font-size: 14px;
+            }
+            .victory-btn.restart,
+            .victory-btn:not(.screenshot-long):not(.screenshot-short) {
+                min-width: calc(50% - 3px);
             }
         }
         
@@ -1104,220 +1243,248 @@
             body {
                 padding: 15px;
             }
-            
             .game-title {
                 font-size: 28px;
                 padding: 5px 6px;
                 margin-bottom: 2px;
                 max-width: 1200px;
             }
-            
             #gameControl {
                 max-width: 1200px;
                 padding: 6px;
                 margin-bottom: 4px;
             }
-            
             .container {
                 height: calc(100vh - 145px);
                 gap: 6px;
                 max-width: 1200px;
             }
-            
             .game-stats-area {
                 margin-bottom: 4px;
             }
-            
             .stats-board {
                 height: 40px;
                 padding: 6px 10px;
                 font-size: 15px;
             }
-            
             .stats-board i {
                 font-size: 16px;
                 margin-right: 5px;
             }
-            
             .score, .timer {
                 font-size: 30px;
             }
-            
             .stats-label {
                 font-size: 14px;
             }
-            
             .english-prompt-container {
-                font-size: 24px;
-                padding: 10px 12px;
-                min-height: 60px;
-            }
-            
-            .option-btn {
-                font-size: 20px;
-                padding: 12px 18px 12px 50px;
+                font-size: 30px;
+                padding: 12px 15px;
                 min-height: 70px;
-                border-radius: 9px;
             }
-            
+            .options-container {
+                gap: 12px;
+                padding: 10px;
+            }
+            .option-btn {
+                font-size: 22px;
+                padding: 12px 20px 12px 60px;
+                min-height: 70px;
+            }
             .option-label {
-                width: 36px;
-                height: 36px;
-                font-size: 17px;
-                left: 10px;
+                width: 42px;
+                height: 42px;
+                font-size: 20px;
+                left: 14px;
             }
-            
             .control-btn {
                 padding: 7px 9px;
                 font-size: 13px;
                 min-width: 115px;
                 max-width: 155px;
             }
-            
             #usernameBtn {
                 min-width: 90px;
                 max-width: 120px;
                 padding: 7px 6px;
             }
-            
             #controlBtn {
                 padding: 9px 16px;
                 font-size: 17px;
                 min-width: 160px;
                 flex: 2;
             }
-            
             .team-area {
                 padding: 8px;
             }
-            
-            .options-container {
-                gap: 6px;
-                padding: 10px;
-            }
-            
             .victory-container {
                 max-width: 1000px;
                 width: 95%;
-                max-height: 85vh;
+                max-height: none;
+                padding: 20px;
             }
-            
             .failed-words-container {
-                height: 230px;
-                max-height: 230px;
-                min-height: 230px;
+                height: 185px;
             }
-            
+            .victory-username {
+                font-size: 56px;
+                margin-bottom: 6px;
+                line-height: 1.2;
+            }
+            .victory-message {
+                font-size: 52px !important;
+                text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3), 0 0 8px rgba(255, 255, 255, 0.4);
+            }
+            .victory-buttons {
+                flex-direction: row;
+                gap: 12px;
+                margin-top: 15px;
+            }
+            .victory-btn {
+                width: auto;
+                flex: 1;
+                padding: 12px 8px;
+                font-size: 16px;
+                white-space: nowrap;
+            }
             .victory-score {
                 font-size: 18px;
                 padding: 8px;
                 max-height: 120px;
                 line-height: 1.2;
             }
-            
             .file-name-display {
                 font-size: 15px;
                 margin-bottom: 5px;
                 padding: 6px 8px;
                 min-height: 36px;
             }
-            
             .word-list-container {
                 min-height: 560px;
                 max-height: 85vh;
                 padding: 16px;
                 margin: 12px 0 25px;
+                max-width: 1200px;
+                width: 95%;
             }
-            
             .word-list-title {
-                font-size: 26px;
+                font-size: 28px;
             }
-            
             .word-list-header {
+                font-size: 22px;
+                padding: 10px 15px;
+            }
+            .word-list-stats {
                 font-size: 18px;
-                padding: 7px 10px;
+                padding: 8px 12px;
             }
-            
             .word-list-content {
-                max-height: 480px;
-                min-height: 380px;
+                max-height: 400px;
+                min-height: 320px;
             }
-            
             .word-list-table th {
-                font-size: 15px;
-                padding: 7px 8px;
+                font-size: 20px;
+                padding: 12px 15px;
             }
-            
             .word-list-table td {
-                font-size: 14px;
-                padding: 5px 8px;
+                font-size: 18px;
+                padding: 10px 15px;
             }
-            
             .word-english {
-                font-size: 15px;
+                font-size: 20px;
             }
-            
             .word-chinese {
-                font-size: 14px;
+                font-size: 18px;
             }
-            
             .word-list-close-btn {
-                font-size: 16px;
-                padding: 9px 18px;
+                font-size: 18px;
+                padding: 12px 20px;
             }
+            .close-confirm-container {
+                max-width: 1200px;
+                width: 95%;
+                padding: 30px;
+                border-width: 5px;
+            }
+            .close-confirm-title {
+                font-size: 32px;
+                margin-bottom: 16px;
+            }
+            .close-confirm-message {
+                font-size: 22px;
+                padding: 15px;
+                margin-bottom: 24px;
+                line-height: 1.5;
+            }
+            .close-confirm-btn {
+                font-size: 22px;
+                padding: 15px 20px;
+                border-radius: 30px;
+            }
+            .full-score-message {
+                font-size: 36px;
+                line-height: 1.5;
+            }
+            .failed-words-content.centered-content {
+                height: 100%;
+                min-height: 0;
+            }
+        }
+
+        .failed-words-content.centered-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            min-height: 0;
+            width: 100%;
+        }
+        .failed-words-content.centered-content .full-score-message {
+            height: auto;
+            width: 100%;
         }
         
         @media (max-width: 768px) {
             body {
                 padding: 5px 5px 18px;
             }
-            
             .game-title {
                 max-width: 100%;
                 font-size: 22px;
             }
-            
             #gameControl {
                 max-width: 100%;
                 padding: 4px;
             }
-            
             .container {
                 height: calc(100vh - 115px);
                 gap: 4px;
                 max-width: 100%;
             }
-            
             .game-stats-area {
                 margin-bottom: 3px;
             }
-            
             .stats-board {
                 height: 38px;
                 font-size: 12px;
                 padding: 4px 6px;
             }
-            
             .stats-board i {
                 font-size: 14px;
                 margin-right: 3px;
             }
-            
             .score, .timer {
                 font-size: 24px;
             }
-            
             .stats-label {
                 font-size: 11px;
             }
-            
             .control-buttons {
                 flex-direction: column;
                 align-items: center;
                 gap: 3px;
                 margin-bottom: 3px;
             }
-            
             .control-btn {
                 width: 100%;
                 max-width: 100%;
@@ -1326,12 +1493,10 @@
                 min-width: auto;
                 border-radius: 16px;
             }
-            
             .username-row {
                 gap: 4px;
                 margin-bottom: 4px;
             }
-            
             #usernameBtn,
             #controlBtn {
                 width: 100%;
@@ -1340,25 +1505,21 @@
                 padding: 7px 10px;
                 font-size: 15px;
             }
-            
             #controlBtn {
                 font-size: 16px;
             }
-            
             .option-btn {
                 font-size: 18px;
                 padding: 10px 12px 10px 45px;
                 min-height: 60px;
                 border-radius: 8px;
             }
-            
             .option-label {
                 width: 30px;
                 height: 30px;
                 font-size: 14px;
                 left: 8px;
             }
-            
             .word-count {
                 font-size: 12px;
                 padding: 2px 4px;
@@ -1366,76 +1527,62 @@
                 top: 3px;
                 left: 3px;
             }
-            
             .english-prompt-container {
                 font-size: 20px;
                 padding: 8px 10px;
                 min-height: 52px;
                 margin-bottom: 5px;
             }
-            
             .prompt-text {
                 font-size: 20px;
             }
-            
             .options-container {
                 gap: 4px;
                 padding: 6px;
             }
-            
             #victoryOverlay {
                 padding: 8px 0;
                 align-items: center;
             }
-            
             .victory-container {
                 min-height: auto;
-                max-height: 95vh;
+                max-height: none;
                 padding: 12px;
                 margin: 0 auto;
-                overflow-y: auto;
+                overflow-y: visible;
             }
-            
             .victory-title {
                 font-size: 22px;
             }
-            
             .victory-username {
                 font-size: 28px;
                 margin-bottom: 2px;
             }
-            
             .victory-message {
-                font-size: 16px;
+                font-size: 17px;
                 margin: 2px 0;
             }
-            
             .file-name-display {
                 font-size: 13px;
                 margin-bottom: 2px;
                 padding: 5px 6px;
                 min-height: 34px;
             }
-            
             .victory-score {
                 font-size: 15px;
                 padding: 6px;
                 max-height: 110px;
                 margin: 2px 0;
             }
-            
             .final-score {
                 font-size: 20px;
             }
-            
             .accuracy-rate, .time-used {
                 font-size: 17px;
             }
-            
             .failed-words-title {
                 font-size: 17px;
             }
-            
             .failed-word-item {
                 font-size: 14px;
                 flex-direction: column;
@@ -1443,69 +1590,57 @@
                 align-items: flex-start;
                 padding: 4px;
             }
-            
             .failed-english {
                 font-size: 16px;
             }
-            
             .failed-chinese {
                 font-size: 14px;
             }
-            
             .failed-word-icon {
                 width: 22px;
                 height: 22px;
                 font-size: 14px;
             }
-            
-            .failed-words-container {
-                max-height: 190px;
-                min-height: 190px;
-                height: 190px;
-            }
-            
             .window-controls {
                 bottom: 6px;
                 right: 6px;
                 padding: 2px;
                 gap: 4px;
             }
-            
             .window-btn {
                 width: 24px;
                 height: 24px;
                 font-size: 11px;
             }
-            
             .word-list-container {
                 min-height: 500px;
                 max-height: 85vh;
-                padding: 10px;
+                padding: 10px 10px 20px 10px;
+                overflow-y: auto;
             }
-            
             .word-list-title {
                 font-size: 22px;
             }
-            
             .word-list-header {
                 font-size: 15px;
                 padding: 5px;
             }
-            
             .word-list-content {
-                max-height: 380px;
-                min-height: 340px;
+                max-height: 320px;
+                min-height: 280px;
                 padding: 8px;
             }
-            
             .word-list-table th {
                 font-size: 13px;
                 padding: 5px;
             }
-            
             .word-list-table td {
                 font-size: 12px;
                 padding: 3px 4px;
+            }
+            .word-list-close-btn {
+                margin: 10px auto 0 auto;
+                margin-top: auto;
             }
         }
         
@@ -1513,16 +1648,132 @@
             .container {
                 height: calc(100vh - 105px);
             }
-            
             .option-btn {
                 min-height: 55px;
                 font-size: 17px;
             }
-            
             .english-prompt-container {
                 min-height: 48px;
                 font-size: 18px;
             }
+        }
+
+        /* ========== 新增手机端姓名与挑战开始按钮并排样式 ========== */
+        @media (max-width: 1023px) {
+            .username-row {
+                display: flex !important;
+                flex-direction: row !important;
+                gap: 8px;
+                width: 100%;
+                justify-content: space-between;
+                flex-wrap: nowrap;
+            }
+            #usernameBtn,
+            #controlBtn {
+                flex: 1 !important;
+                min-width: 0 !important;
+                width: auto !important;
+                max-width: none !important;
+                margin: 0 !important;
+                padding: 8px 6px;
+                font-size: 15px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            #controlBtn {
+                padding: 8px 10px;
+                font-size: 16px;
+            }
+            /* 确保原有手机端样式不冲突 */
+            .username-row {
+                margin-bottom: 4px;
+            }
+        }
+
+        #nameInputOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 3000;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .name-input-container {
+            background: white;
+            padding: 24px;
+            border-radius: 20px;
+            width: 85%;
+            max-width: 340px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        .name-input-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 16px;
+        }
+
+        .name-input-field {
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 18px;
+            border: 2px solid #40a9ff;
+            border-radius: 30px;
+            outline: none;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            -webkit-appearance: none;
+        }
+
+        .name-input-field:focus {
+            border-color: #1890ff;
+            box-shadow: 0 0 0 3px rgba(24,144,255,0.2);
+        }
+
+        .name-input-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .name-input-btn {
+            flex: 1;
+            padding: 12px 0;
+            font-size: 18px;
+            border: none;
+            border-radius: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+            touch-action: manipulation;
+        }
+
+        .name-input-btn.confirm {
+            background: linear-gradient(45deg, #52c41a, #73d13d);
+            color: white;
+        }
+
+        .name-input-btn.confirm:hover {
+            background: linear-gradient(45deg, #73d13d, #52c41a);
+        }
+
+        .name-input-btn.cancel {
+            background: #f0f0f0;
+            color: #666;
+        }
+
+        .name-input-btn.cancel:hover {
+            background: #e0e0e0;
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -1535,7 +1786,7 @@
             <div class="closing-icon">
                 <i class="fas fa-power-off"></i>
             </div>
-            <div class="closing-message" id="closingMessage">正在关闭百词斩游戏...</div>
+            <div class="closing-message" id="closingMessage">正在关闭百词砍游戏...</div>
         </div>
     </div>
     
@@ -1544,7 +1795,7 @@
         <div class="close-confirm-container">
             <h2 class="close-confirm-title">确认关闭</h2>
             <div class="close-confirm-message" id="closeConfirmMessage">
-                您确定要关闭百词斩游戏吗？<br><br>
+                您确定要关闭百词砍游戏吗？<br><br>
                 <span style="color: #ff4d4f; font-weight: bold;">注意：</span>当前游戏进度将不会保存！
             </div>
             <div class="close-confirm-buttons">
@@ -1554,6 +1805,20 @@
                 <button class="close-confirm-btn cancel" onclick="cancelClose()">
                     <i class="fas fa-times"></i> 取消
                 </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 重新开始确认弹窗（自定义） -->
+    <div id="restartConfirmOverlay" class="restart-confirm-overlay">
+        <div class="restart-confirm-container">
+            <div class="restart-confirm-message">
+                <p>点击确定：重新开始</p>
+                <p>点击取消：返回截图</p>
+            </div>
+            <div class="restart-confirm-buttons">
+                <button class="restart-confirm-btn confirm-restart" id="confirmRestartBtn">确定</button>
+                <button class="restart-confirm-btn cancel-restart" id="cancelRestartBtn">取消</button>
             </div>
         </div>
     </div>
@@ -1576,6 +1841,18 @@
             </button>
         </div>
     </div>
+
+    <!-- 自定义姓名输入模态框 -->
+    <div id="nameInputOverlay">
+        <div class="name-input-container">
+            <div class="name-input-title">请输入您的姓名</div>
+            <input type="text" id="nameInputField" class="name-input-field" placeholder="姓名" value="">
+            <div class="name-input-buttons">
+                <button class="name-input-btn confirm" id="nameInputConfirm">确定</button>
+                <button class="name-input-btn cancel" id="nameInputCancel">取消</button>
+            </div>
+        </div>
+    </div>
     
     <!-- Windows风格窗口控制按钮 -->
     <div class="window-controls">
@@ -1589,7 +1866,7 @@
     
     <!-- 游戏标题 -->
     <div class="game-title">
-        <i class="fas fa-book"></i> 百词斩 <i class="fas fa-gamepad"></i>
+        <i class="fas fa-book"></i> 百词砍 <i class="fas fa-gamepad"></i>
     </div>
     
     <!-- 游戏控制区域 -->
@@ -1602,7 +1879,9 @@
         </div>
         
         <div class="username-row">
-            <button id="usernameBtn" class="control-btn"><i class="fas fa-user"></i> <span id="usernameDisplay">输入姓名</span></button>
+            <button id="usernameBtn" class="control-btn" onclick="showNameInput()">
+                <i class="fas fa-user"></i> <span id="usernameDisplay">输入姓名</span>
+            </button>
             <button id="controlBtn" onclick="toggleGame()"><i class="fas fa-play"></i> 挑战开始</button>
         </div>
         
@@ -1656,7 +1935,8 @@
                 </div>
             </div>
             <div class="victory-buttons">
-                <button class="victory-btn screenshot" onclick="captureScreenshot()"><i class="fas fa-camera"></i> 截图保存</button>
+                <button class="victory-btn screenshot-long" onclick="captureScreenshot('long')"><i class="fas fa-camera"></i> 截取长图</button>
+                <button class="victory-btn screenshot-short" onclick="captureScreenshot('short')"><i class="fas fa-camera-retro"></i> 截取短图</button>
                 <button class="victory-btn" onclick="restartGame()"><i class="fas fa-redo"></i> 重新开始</button>
                 <button class="victory-btn restart" onclick="showCloseConfirm()"><i class="fas fa-times"></i> 关闭游戏</button>
             </div>
@@ -1694,19 +1974,31 @@
             }
         }
 
-        function setupUsernameHandlers() {
-            const usernameBtn = document.getElementById('usernameBtn');
-            if (usernameBtn) {
-                usernameBtn.addEventListener('click', () => {
-                    const newName = prompt('请输入您的姓名', username);
-                    if (newName !== null) {
-                        const trimmed = newName.trim();
-                        username = trimmed;
-                        saveUsername(trimmed);
-                        updateUsernameButton();
-                    }
-                });
+        function showNameInput() {
+            const overlay = document.getElementById('nameInputOverlay');
+            const inputField = document.getElementById('nameInputField');
+            inputField.value = username;
+            overlay.style.display = 'flex';
+            setTimeout(() => inputField.focus(), 100);
+        }
+
+        function hideNameInput() {
+            document.getElementById('nameInputOverlay').style.display = 'none';
+        }
+
+        function confirmName() {
+            const inputField = document.getElementById('nameInputField');
+            const newName = inputField.value.trim();
+            if (newName !== '') {
+                username = newName;
+                saveUsername(newName);
+                updateUsernameButton();
+            } else {
+                username = '';
+                saveUsername('');
+                updateUsernameButton();
             }
+            hideNameInput();
         }
 
         // ==================== 游戏核心逻辑 ====================
@@ -1720,9 +2012,8 @@
         let currentQuestion = null;
         let score = 0;
         let timerInterval = null;
-        let totalTime = 10 * 60;  // 10分钟
-        let currentTime = totalTime;
-        let gameStartTime = 0;
+        const totalTime = 10 * 60;          // 10分钟 = 600秒
+        let gameStartTimestamp = 0;          // 游戏开始的毫秒时间戳
         let gameElapsedTime = 0;
         let optionClickLock = false;
         let failedWords = [];
@@ -1732,13 +2023,31 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             loadUsername();
-            setupUsernameHandlers();
+
+            document.getElementById('nameInputConfirm').addEventListener('click', confirmName);
+            document.getElementById('nameInputCancel').addEventListener('click', hideNameInput);
+            document.getElementById('nameInputOverlay').addEventListener('click', function(e) {
+                if (e.target === this) hideNameInput();
+            });
+
+            // 重新开始自定义弹窗按钮绑定
+            document.getElementById('confirmRestartBtn').addEventListener('click', function() {
+                hideRestartConfirm();
+                performRestart();
+            });
+            document.getElementById('cancelRestartBtn').addEventListener('click', function() {
+                hideRestartConfirm();
+            });
+            document.getElementById('restartConfirmOverlay').addEventListener('click', function(e) {
+                if (e.target === this) hideRestartConfirm();
+            });
+
             document.querySelectorAll('.window-btn').forEach(btn => {
                 btn.addEventListener('mouseenter', () => {
                     playSystemSound('click');
                 });
             });
-            updateTimerDisplay();
+            updateTimerDisplay();   // 初始显示 10:00
             initAudioContext();
             const fileNameDisplay = document.getElementById('fileNameDisplay');
             if (fileNameDisplay) {
@@ -1755,6 +2064,24 @@
                 container.appendChild(btn);
             }
         });
+
+        function showRestartConfirm() {
+            document.getElementById('restartConfirmOverlay').style.display = 'flex';
+        }
+
+        function hideRestartConfirm() {
+            document.getElementById('restartConfirmOverlay').style.display = 'none';
+        }
+
+        function performRestart() {
+            closeVictoryScreen();
+            resetGameState();
+        }
+
+        // 重写 restartGame 函数，使其显示自定义确认框
+        window.restartGame = function() {
+            showRestartConfirm();
+        };
 
         function initAudioContext() {
             try {
@@ -1789,48 +2116,59 @@
             }
         }
 
+        // ========== 计时器核心修复（基于时间戳） ==========
+        // 获取当前剩余秒数
+        function getRemainingSeconds() {
+            if (!isPlaying || gameStartTimestamp === 0) {
+                return totalTime;
+            }
+            const elapsed = (Date.now() - gameStartTimestamp) / 1000;
+            let remaining = totalTime - elapsed;
+            return remaining > 0 ? remaining : 0;
+        }
+
+        // 更新计时器显示（基于剩余秒数）
         function updateTimerDisplay() {
-            const minutes = Math.floor(currentTime / 60);
-            const seconds = currentTime % 60;
+            const remaining = getRemainingSeconds();
+            const minutes = Math.floor(remaining / 60);
+            const seconds = Math.floor(remaining % 60);
             const timerElement = document.getElementById('timer');
             if (timerElement) {
-                timerElement.textContent = 
-                    `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                // 剩余 ≤30秒时闪烁效果
+                if (remaining <= 30) {
+                    timerElement.style.color = (Math.floor(remaining * 2) % 2 === 0) ? '#ff4d4f' : '#1890ff';
+                    if (remaining <= 10 && Math.floor(Date.now() / 300) % 2 === 0) {
+                        playSystemSound('click');
+                    }
+                } else {
+                    timerElement.style.color = '#1890ff';
+                }
             }
         }
 
+        // 启动计时器更新循环（每200ms刷新一次，保证倒计时流畅）
         function startTimer() {
             console.log("开始计时器...");
             if (timerInterval) {
                 clearInterval(timerInterval);
                 timerInterval = null;
             }
-            currentTime = totalTime;
+            // 记录开始时刻
+            gameStartTimestamp = Date.now();
             updateTimerDisplay();
-            gameStartTime = Date.now();
-            const timerElement = document.getElementById('timer');
-            if (timerElement) {
-                timerElement.style.color = '#1890ff';
-            }
+            // 设置定时器：每 200ms 检查一次超时并刷新显示
             timerInterval = setInterval(() => {
-                if (currentTime > 0) {
-                    currentTime--;
-                    updateTimerDisplay();
-                    if (currentTime <= 30) {
-                        const timerElement = document.getElementById('timer');
-                        if (timerElement) {
-                            timerElement.style.color = (currentTime % 2 === 0) ? '#ff4d4f' : '#1890ff';
-                            if (currentTime <= 10) {
-                                playSystemSound('click');
-                            }
-                        }
-                    }
-                } else {
+                if (!isPlaying) return;
+                const remaining = getRemainingSeconds();
+                updateTimerDisplay();
+                if (remaining <= 0) {
+                    // 时间到，结束游戏
                     clearInterval(timerInterval);
                     timerInterval = null;
                     timeUpGameOver();
                 }
-            }, 1000);
+            }, 200);
         }
 
         function stopTimer() {
@@ -1844,10 +2182,12 @@
             }
         }
 
+        // 计算实际已用秒数
         function calculateActualTime() {
-            if (gameStartTime > 0) {
-                const now = Date.now();
-                gameElapsedTime = Math.floor((now - gameStartTime) / 1000);
+            if (gameStartTimestamp > 0) {
+                let elapsed = (Date.now() - gameStartTimestamp) / 1000;
+                if (elapsed > totalTime) elapsed = totalTime;
+                gameElapsedTime = Math.floor(elapsed);
                 return gameElapsedTime;
             }
             return 0;
@@ -1859,6 +2199,7 @@
             return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
         }
 
+        // 超时结束游戏
         function timeUpGameOver() {
             isPlaying = false;
             const actualTime = calculateActualTime();
@@ -1878,7 +2219,8 @@
             const maxPossibleScore = totalWords * 10;
             const correctRate = maxPossibleScore > 0 ? (score / maxPossibleScore) * 100 : 0;
             const encouragementMessage = getEncouragementMessage(score, correctRate);
-            showGameOverScreen(encouragementMessage, unfinished.length, score, correctRate, totalWords, maxPossibleScore, actualTime);
+            const remainingTime = totalTime - actualTime;
+            showGameOverScreen(encouragementMessage, unfinished.length, score, correctRate, totalWords, maxPossibleScore, actualTime, remainingTime);
         }
 
         function getEncouragementMessage(finalScore, correctRate) {
@@ -1995,18 +2337,16 @@
                 const totalWords = gameWords.length;
                 const maxPossibleScore = totalWords * 10;
                 const correctRate = maxPossibleScore > 0 ? (score / maxPossibleScore) * 100 : 0;
-                showGameOverScreen('恭喜！您完成了所有单词！', 0, score, correctRate, totalWords, maxPossibleScore, actualTime);
+                const remainingTime = totalTime - actualTime;
+                showGameOverScreen('恭喜！您完成了所有单词！', 0, score, correctRate, totalWords, maxPossibleScore, actualTime, remainingTime);
                 return true;
             }
             return false;
         }
 
-        function showGameOverScreen(message, remainingWords, finalScore, correctRate, totalWords, maxPossibleScore, actualTime) {
+        function showGameOverScreen(message, remainingWords, finalScore, correctRate, totalWords, maxPossibleScore, actualTime, remainingTime) {
             isPlaying = false;
             stopTimer();
-            if (!actualTime && actualTime !== 0) {
-                actualTime = calculateActualTime();
-            }
             if (!victorySoundPlayed && remainingWords === 0) {
                 playSystemSound('victory');
                 victorySoundPlayed = true;
@@ -2028,7 +2368,8 @@
                 correctRate,
                 remainingWords,
                 failedWordsCount: failedWords.length,
-                actualTime
+                actualTime,
+                remainingTime
             });
             
             if (remainingWords === 0) {
@@ -2041,21 +2382,22 @@
             
             let encouragementText = "";
             let messageColor = "#333";
+            
             if (correctRate === 100) {
                 encouragementText = "须知少时凌云志，曾许人间第一流。";
                 messageColor = "#ff4d4f";
             } else if (correctRate >= 80) {
                 encouragementText = "不想满心遗憾，那就拼尽全力。";
-                messageColor = "#1890ff";
+                messageColor = "#E67E22";
             } else if (correctRate >= 60) {
                 encouragementText = "同是窗寒苦读，怎愿甘拜下风。";
-                messageColor = "#faad14";
+                messageColor = "#1E88E5";
             } else if (finalScore > 0) {
                 encouragementText = "知不足而奋进，望远山而前行。";
-                messageColor = "#666";
+                messageColor = "#1B7F79";
             } else {
                 encouragementText = "前方无绝路，希望在转角。";
-                messageColor = "#666";
+                messageColor = "#333333";
             }
             
             const displayText = (remainingWords > 0) ? message : encouragementText;
@@ -2094,11 +2436,10 @@
                 <div class="score-line" style="margin-top: 2px;">
                     <span>用时: <span class="time-used">${formatTimeUsed(actualTime)}</span></span>
                     <span style="margin: 0 8px; color: #ccc;">|</span>
-                    <span>剩余时间: ${formatTimeUsed(currentTime)}</span>
+                    <span>剩余时间: ${formatTimeUsed(remainingTime)}</span>
                 </div>
             `;
             
-            // 无论是否有未过关单词，容器始终显示
             failedWordsContainer.style.display = 'flex';
             
             if (failedWords.length > 0) {
@@ -2112,27 +2453,27 @@
                     const typeText = word.type === 'click-wrong' ? '点击错误' : '超时未完成';
                     const typeClass = word.type === 'click-wrong' ? 'click-wrong-type' : 'timeout-type';
                     item.innerHTML = `
-                        <div style="display: flex; align-items: center;">
+                        <div style="display: flex; align-items: center; flex-wrap: wrap;">
                             <div class="failed-word-icon ${iconClass}">
                                 <i class="fas ${icon}"></i>
                             </div>
-                            <span class="failed-english">${word.english}</span>
+                            <span class="failed-english">${escapeHtml(word.english)}</span>
                             <span class="failed-word-type ${typeClass}">${typeText}</span>
                         </div>
-                        <span class="failed-chinese">${word.chinese}</span>
+                        <span class="failed-chinese">${escapeHtml(word.chinese)}</span>
                     `;
                     failedWordsContent.appendChild(item);
                 });
+                failedWordsContent.classList.remove('centered-content');
             } else {
-                // 无未过关单词：显示三行励志语
                 failedWordsContent.innerHTML = `
                     <div class="full-score-message">
                         <div>愿你历经万难，仍有少年凌云志；</div>
                         <div>愿你踏破山河，不忘来时风雨路；</div>
-                        <div>愿你一路生花，前路繁花似锦。</div>
                     </div>
                 `;
                 failedWordsCount.textContent = '0个';
+                failedWordsContent.classList.add('centered-content');
             }
             
             victoryOverlay.style.display = 'flex';
@@ -2143,6 +2484,7 @@
             btn.style.background = 'linear-gradient(45deg, #36cfc9, #1890ff)';
         }
 
+        // ==================== 文件上传相关函数 ====================
         function loadWords(file) {
             if (!file) {
                 alert('请选择一个文件！');
@@ -2211,6 +2553,18 @@
                 alert('读取文件失败！');
             };
             reader.readAsArrayBuffer(file);
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.replace(/[&<>]/g, function(m) {
+                if (m === '&') return '&amp;';
+                if (m === '<') return '&lt;';
+                if (m === '>') return '&gt;';
+                return m;
+            }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
+                return c;
+            });
         }
 
         function processWordContent(content, fileName) {
@@ -2355,20 +2709,20 @@
                             <th style="width: 10%;">序号</th>
                             <th style="width: 45%;">英文</th>
                             <th style="width: 45%;">中文</th>
-                        </tr>
-                    </thead>
+                        </thead>
                     <tbody>
             `;
             words.forEach((word, index) => {
                 tableHTML += `
                     <tr>
                         <td style="text-align: center; font-weight: bold; color: #666;">${index + 1}</td>
-                        <td class="word-english">${word.english}</td>
-                        <td class="word-chinese">${word.chinese}</td>
+                        <td class="word-english">${escapeHtml(word.english)}</td>
+                        <td class="word-chinese">${escapeHtml(word.chinese)}</td>
                     </tr>
                 `;
             });
-            tableHTML += `</tbody></table>`;
+            tableHTML += `</tbody>
+                </table>`;
             wordListContent.innerHTML = tableHTML;
             wordListOverlay.style.display = 'flex';
             setTimeout(() => { wordListContent.scrollTop = 0; }, 100);
@@ -2378,10 +2732,12 @@
             console.log("关闭单词列表预览");
             playSystemSound('click');
             document.getElementById('wordListOverlay').style.display = 'none';
-            alert(`单词表加载成功！\n\n文件名: ${currentFileName}\n单词数量: ${currentWords.length}个\n\n现在可以点击"挑战开始"按钮开始游戏！`);
         }
 
         function resetGameState() {
+            stopTimer();
+            isPlaying = false;
+            gameStartTimestamp = 0;
             document.querySelectorAll('.option-btn').forEach(btn => btn.remove());
             document.getElementById('prompt').textContent = 'Ready！Go！';
             const fileNameDisplay = document.getElementById('fileNameDisplay');
@@ -2419,22 +2775,18 @@
             }
             score = 0;
             updateScoreDisplay();
-            currentTime = totalTime;
+            // 重置计时器显示为 10:00
             updateTimerDisplay();
             const timerElement = document.getElementById('timer');
             if (timerElement) {
                 timerElement.style.color = '#1890ff';
             }
-            gameStartTime = 0;
-            gameElapsedTime = 0;
             failedWords = [];
-            isPlaying = false;
-            stopTimer();
+            optionClickLock = false;
             document.getElementById('controlBtn').innerHTML = '<i class="fas fa-play"></i> 挑战开始';
             document.getElementById('controlBtn').style.background = 'linear-gradient(45deg, #ff4d4f, #ff7875)';
             victorySoundPlayed = false;
             cheerSoundPlayed = false;
-            optionClickLock = false;
             console.log("游戏状态已重置");
         }
 
@@ -2446,10 +2798,8 @@
             console.log("游戏初始化完成，单词数:", currentWords.length);
         }
 
-        function restartGame() {
-            closeVictoryScreen();
-            resetGameState();
-            alert('游戏已重新开始！\n单词和得分已重置，计时器重置为10分钟。');
+        function closeVictoryScreen() {
+            document.getElementById('victoryOverlay').style.display = 'none';
         }
 
         function createOptions() {
@@ -2623,19 +2973,11 @@
                     document.getElementById('prompt').textContent = currentPrompt;
                 }
                 console.log("游戏开始");
-            } else {
-                if (!isPlaying) {
-                    btn.innerHTML = '<i class="fas fa-play"></i> 重新挑战';
-                    btn.style.background = 'linear-gradient(45deg, #36cfc9, #1890ff)';
-                }
             }
         }
 
-        function closeVictoryScreen() {
-            document.getElementById('victoryOverlay').style.display = 'none';
-        }
-        
-        async function captureScreenshot() {
+        // ==================== 截图功能（长图/短图）- 高度一致性优化 ====================
+        async function captureScreenshot(mode) {
             playSystemSound('screenshot');
             
             const victoryContainer = document.querySelector('.victory-container');
@@ -2648,8 +2990,29 @@
             document.body.appendChild(loadingToast);
             
             try {
-                const originalWidth = victoryContainer.offsetWidth;
+                const failedContainer = document.getElementById('failedWordsContainer');
+                const failedContent = document.getElementById('failedWordsContent');
                 
+                const originalFailedContainerStyle = failedContainer.style.cssText;
+                const originalFailedContentStyle = failedContent.style.cssText;
+                
+                const isMobile = window.innerWidth <= 768;
+                const fixedHeight = isMobile ? 135 : 185;
+                
+                if (mode === 'long') {
+                    const contentScrollHeight = failedContent.scrollHeight;
+                    if (contentScrollHeight > fixedHeight - 40) {
+                        failedContainer.style.height = 'auto';
+                        failedContainer.style.maxHeight = 'none';
+                        failedContainer.style.minHeight = 'auto';
+                        failedContainer.style.overflow = 'visible';
+                        failedContent.style.overflowY = 'visible';
+                        failedContent.style.maxHeight = 'none';
+                        failedContent.style.height = 'auto';
+                    }
+                }
+                
+                const originalWidth = victoryContainer.offsetWidth;
                 const cloneWrapper = document.createElement('div');
                 cloneWrapper.style.position = 'absolute';
                 cloneWrapper.style.left = '-9999px';
@@ -2664,41 +3027,66 @@
                 clone.style.overflow = 'visible';
                 clone.style.animation = 'none';
                 
+                const cloneFailedContainer = clone.querySelector('#failedWordsContainer');
+                const cloneFailedContent = clone.querySelector('#failedWordsContent');
+                if (cloneFailedContainer && cloneFailedContent) {
+                    if (mode === 'long') {
+                        const contentScrollHeight = failedContent.scrollHeight;
+                        if (contentScrollHeight > fixedHeight - 40) {
+                            cloneFailedContainer.style.height = 'auto';
+                            cloneFailedContainer.style.maxHeight = 'none';
+                            cloneFailedContainer.style.minHeight = 'auto';
+                            cloneFailedContainer.style.overflow = 'visible';
+                            cloneFailedContent.style.overflowY = 'visible';
+                            cloneFailedContent.style.maxHeight = 'none';
+                            cloneFailedContent.style.height = 'auto';
+                        }
+                    }
+                }
+                
                 cloneWrapper.appendChild(clone);
                 document.body.appendChild(cloneWrapper);
                 
                 await new Promise(resolve => setTimeout(resolve, 100));
                 
                 const canvas = await html2canvas(clone, {
-                    scale: 2,
+                    scale: 4,
                     backgroundColor: null,
                     allowTaint: true,
                     useCORS: true,
                     logging: false,
-                    imageTimeout: 30000,
+                    imageTimeout: 60000,
+                    onclone: function(clonedDoc) {
+                        const clonedVictory = clonedDoc.querySelector('.victory-container');
+                        if (clonedVictory) {
+                            clonedVictory.style.textRendering = 'geometricPrecision';
+                            clonedVictory.style.webkitFontSmoothing = 'antialiased';
+                        }
+                    }
                 });
                 
                 document.body.removeChild(cloneWrapper);
+                failedContainer.style.cssText = originalFailedContainerStyle;
+                failedContent.style.cssText = originalFailedContentStyle;
                 
                 if (document.body.contains(loadingToast)) {
                     document.body.removeChild(loadingToast);
                 }
                 
                 const link = document.createElement('a');
-                
-                // 修改截图文件名格式：姓名_百词斩成绩单_对应的单词表名称_日期
-                // 处理文件名：移除可能不合法的字符
                 const safeUsername = (username || '玩家').replace(/[\\/:*?"<>|]/g, '_');
-                const safeFileName = (currentFileName ? currentFileName.replace(/\.[^/.]+$/, '') : '未命名').replace(/[\\/:*?"<>|]/g, '_');
+                const scorePart = `【${score}分】`;
+                const baseName = currentFileName ? currentFileName.replace(/\.[^/.]+$/, '') : '未命名';
+                const safeFileName = baseName.replace(/[\\/:*?"<>|]/g, '_');
                 
-                // 格式化日期：YYYY-MM-DD
                 const now = new Date();
                 const year = now.getFullYear();
                 const month = String(now.getMonth() + 1).padStart(2, '0');
                 const day = String(now.getDate()).padStart(2, '0');
-                const dateStr = `${year}-${month}-${day}`;
+                const dateStr = `${year}${month}${day}`;
                 
-                const fileName = `${safeUsername}_百词斩成绩单_${safeFileName}_${dateStr}.png`;
+                const modeText = mode === 'long' ? '长图' : '短图';
+                const fileName = `${safeUsername}${scorePart}${safeFileName}_${dateStr}_${modeText}.png`;
                 
                 canvas.toBlob((blob) => {
                     const url = URL.createObjectURL(blob);
@@ -2722,6 +3110,11 @@
                 }, 'image/png', 1.0);
                 
             } catch (error) {
+                const failedContainer = document.getElementById('failedWordsContainer');
+                const failedContent = document.getElementById('failedWordsContent');
+                if (failedContainer) failedContainer.style.cssText = '';
+                if (failedContent) failedContent.style.cssText = '';
+                
                 if (document.body.contains(loadingToast)) {
                     document.body.removeChild(loadingToast);
                 }
@@ -2739,7 +3132,7 @@
                 alert('截图失败，错误：' + error.message);
             }
         }
-        
+
         function createToast(message, type = 'info') {
             const toast = document.createElement('div');
             const colors = {
@@ -2780,7 +3173,7 @@
             
             return toast;
         }
-        
+
         function toggleFullscreen() {
             if (!document.fullscreenElement) {
                 if (document.documentElement.requestFullscreen) {
@@ -2806,28 +3199,28 @@
                 playSystemSound('click');
             }
         }
-        
+
         document.addEventListener('fullscreenchange', handleFullscreenChange);
         document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
         document.addEventListener('msfullscreenchange', handleFullscreenChange);
-        
+
         function handleFullscreenChange() {
             const maximizeBtn = document.querySelector('.window-btn.maximize i');
             if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
                 if (maximizeBtn) maximizeBtn.className = 'fas fa-window-maximize';
             }
         }
-        
+
         function showCloseConfirm() {
             playSystemSound('wrong');
             document.getElementById('closeConfirmOverlay').style.display = 'flex';
         }
-        
+
         function cancelClose() {
             playSystemSound('click');
             document.getElementById('closeConfirmOverlay').style.display = 'none';
         }
-        
+
         function confirmClose() {
             playSystemSound('close');
             const closingAnimation = document.getElementById('closingAnimation');
@@ -2839,7 +3232,7 @@
                 setTimeout(() => {
                     closingMessage.textContent = "正在释放资源...";
                     setTimeout(() => {
-                        closingMessage.textContent = "百词斩游戏已关闭";
+                        closingMessage.textContent = "百词砍游戏已关闭";
                         const isOpenedByJS = window.opener || window.history.length <= 1;
                         setTimeout(() => {
                             try {
